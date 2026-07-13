@@ -1,0 +1,199 @@
+/* ==========================
+   PAGE
+========================== */
+
+.announcement-list-page {
+    max-width: 1450px;
+    margin: 40px auto;
+    padding: 0 30px 60px;
+}
+
+/* ==========================
+   BACK BUTTON
+========================== */
+
+.back-btn {
+    display: block;
+    width: 40%;
+    min-width: 260px;
+    max-width: 500px;
+
+    margin: 0 auto 40px;
+
+    height: 52px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(135deg,#2563eb,#3b82f6);
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.back-btn:hover{
+    transform: translateY(-2px);
+    box-shadow:0 10px 24px rgba(37,99,235,.25);
+}
+
+/* ==========================
+   MAIN CONTAINER
+========================== */
+
+.announcement-list-header,
+.announcement-list-grid,
+.pagination{
+    max-width:1300px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.announcement-list-header{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.announcement-list-header h1{
+    margin:0;
+    font-size:46px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.announcement-list-header p{
+    margin-top:10px;
+    font-size:18px;
+    color:#64748b;
+}
+
+/* ==========================
+   GRID
+========================== */
+
+.announcement-list-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+    gap:30px;
+}
+
+/* ==========================
+   EMPTY
+========================== */
+
+.no-announcements{
+    grid-column:1/-1;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:70px;
+
+    text-align:center;
+
+    color:#64748b;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.06);
+}
+
+/* ==========================
+   PAGINATION
+========================== */
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+
+    margin-top:50px;
+}
+
+.pagination button{
+
+    min-width:46px;
+    height:46px;
+
+    padding:0 18px;
+
+    border-radius:12px;
+
+    border:1px solid #dbe3f0;
+
+    background:#fff;
+
+    color:#1e293b;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.pagination button:hover:not(:disabled){
+
+    background:#2563eb;
+    color:#fff;
+    border-color:#2563eb;
+}
+
+.pagination button:disabled{
+
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.active-page{
+
+    background:#2563eb !important;
+    color:#fff !important;
+    border-color:#2563eb !important;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width:1100px){
+
+    .announcement-list-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .back-btn{
+        width:60%;
+    }
+}
+
+@media (max-width:768px){
+
+    .announcement-list-page{
+        padding:0 18px 40px;
+    }
+
+    .announcement-list-grid{
+        grid-template-columns:1fr;
+    }
+
+    .announcement-list-header h1{
+        font-size:34px;
+    }
+
+    .announcement-list-header p{
+        font-size:16px;
+    }
+
+    .back-btn{
+        width:100%;
+    }
+}

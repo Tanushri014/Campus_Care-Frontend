@@ -1,0 +1,155 @@
+
+.features {
+    padding: 5rem 2rem;
+    background: #f8fafc;
+}
+
+.features-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3.5rem;
+}
+
+.features-heading h2 {
+    font-size: 2.4rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.features-heading p {
+    color: #6b7280;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.features-grid {
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    transition: all .35s ease;
+    border: 1px solid transparent;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: #2563eb;
+    box-shadow: 0 20px 45px rgba(37, 99, 235, 0.12);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, .1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.3rem;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: #6b7280;
+    line-height: 1.8;
+    font-size: .96rem;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 992px) {
+
+    .features {
+        padding: 4rem 1.5rem;
+    }
+
+    .features-heading h2 {
+        font-size: 2rem;
+    }
+
+    .features-grid {
+        gap: 1.5rem;
+    }
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+
+    .features {
+        padding: 3.5rem 1rem;
+    }
+
+    .features-heading {
+        margin-bottom: 2.5rem;
+    }
+
+    .features-heading h2 {
+        font-size: 1.8rem;
+    }
+
+    .features-heading p {
+        font-size: .95rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        padding: 1.8rem;
+    }
+
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+
+}
+
+/* ---------- Small Phones ---------- */
+
+@media (max-width: 480px) {
+
+    .features-heading h2 {
+        font-size: 1.6rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+
+    .feature-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .feature-card p {
+        font-size: .9rem;
+    }
+
+    .feature-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+}

@@ -1,0 +1,158 @@
+.feedback-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.feedback-card {
+    width: 100%;
+    max-width: 650px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.back-btn {
+    background: transparent;
+    border: none;
+    color: #2563eb;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    color: #1d4ed8;
+}
+
+.feedback-card h1 {
+    color: #1f2937;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.feedback-card p {
+    color: #6b7280;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.feedback-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: #374151;
+}
+
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    font-family: inherit;
+    background: #fff;
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.submit-btn {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.95rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+
+    .feedback-page {
+        padding: 1.5rem;
+    }
+
+    .feedback-card {
+        padding: 2rem;
+    }
+
+    .feedback-card h1 {
+        font-size: 1.7rem;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+
+    .feedback-page {
+        padding: 1rem;
+    }
+
+    .feedback-card {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+
+    .feedback-card h1 {
+        font-size: 1.45rem;
+    }
+
+    .feedback-card p {
+        font-size: 0.9rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    .input-group select,
+    .input-group textarea {
+        font-size: 0.95rem;
+    }
+
+}

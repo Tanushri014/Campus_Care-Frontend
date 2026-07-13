@@ -1,0 +1,135 @@
+.complaint-success-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.complaint-success-card {
+    width: 100%;
+    max-width: 560px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.success-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 1.8rem;
+    border-radius: 50%;
+    background: #22c55e;
+    color: #fff;
+    font-size: 2.8rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.complaint-success-card h1 {
+    color: #1f2937;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.complaint-success-card p {
+    color: #6b7280;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-button {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.95rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.dashboard-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.dashboard-button:active {
+    transform: translateY(0);
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+
+    .complaint-success-page {
+        padding: 1.5rem;
+    }
+
+    .complaint-success-card {
+        padding: 2.2rem;
+    }
+
+    .success-icon {
+        width: 75px;
+        height: 75px;
+        font-size: 2.3rem;
+    }
+
+    .complaint-success-card h1 {
+        font-size: 1.6rem;
+    }
+
+    .complaint-success-card p {
+        font-size: 0.95rem;
+    }
+
+    .dashboard-button {
+        width: 100%;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+
+    .complaint-success-page {
+        padding: 1rem;
+    }
+
+    .complaint-success-card {
+        padding: 1.8rem;
+        border-radius: 16px;
+    }
+
+    .success-icon {
+        width: 68px;
+        height: 68px;
+        font-size: 2rem;
+        margin-bottom: 1.3rem;
+    }
+
+    .complaint-success-card h1 {
+        font-size: 1.35rem;
+    }
+
+    .complaint-success-card p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .dashboard-button {
+        padding: 0.85rem;
+        font-size: 0.95rem;
+    }
+
+}

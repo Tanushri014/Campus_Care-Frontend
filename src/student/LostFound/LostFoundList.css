@@ -1,0 +1,137 @@
+/* ===========================
+   PAGE
+=========================== */
+
+.lostfound-list-page{
+    max-width:1400px;
+    margin:40px auto;
+    padding:0 30px 60px;
+}
+
+/* ===========================
+   BACK BUTTON
+=========================== */
+
+.back-btn-wrapper{
+    display:flex;
+    justify-content:center;
+    margin-bottom:40px;
+}
+
+.back-btn{
+    width:40%;
+    min-width:260px;
+    max-width:480px;
+    height:52px;
+
+    border:none;
+    border-radius:14px;
+
+    background:#2563eb;
+    color:#fff;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.lostfound-list-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    max-width:1200px;
+    margin:0 auto 45px;
+}
+
+.header-content{
+    flex:1;
+}
+
+.header-content h1{
+    margin:0;
+    font-size:44px;
+    font-weight:700;
+    color:#0f172a;
+}
+
+.header-content p{
+    margin-top:8px;
+    color:#64748b;
+    font-size:17px;
+}
+
+/* ===========================
+   ADD BUTTON
+=========================== */
+
+.add-btn{
+    width:220px;
+    height:52px;
+
+    border:none;
+    border-radius:14px;
+
+    background:#2563eb;
+    color:#fff;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.add-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.lostfound-list-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:28px;
+
+    max-width:1200px;
+    margin:0 auto;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+    .back-btn{
+        width:90%;
+    }
+
+    .lostfound-list-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .add-btn{
+        width:100%;
+    }
+
+    .header-content h1{
+        font-size:34px;
+    }
+}

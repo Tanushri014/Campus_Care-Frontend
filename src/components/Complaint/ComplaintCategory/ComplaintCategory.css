@@ -1,0 +1,212 @@
+/* ===========================
+   CATEGORY PAGE
+=========================== */
+
+.category-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+    padding: 3rem 6%;
+}
+
+.category-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.category-container h1 {
+    font-size: 2.3rem;
+    color: #1f2937;
+    margin-bottom: .6rem;
+    text-align: center;
+}
+
+.category-container>p {
+    color: #6b7280;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.category-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 2rem 1.6rem;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #edf2f7;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    transition: all .35s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(37, 99, 235, .04),
+            transparent);
+    opacity: 0;
+    transition: .35s;
+}
+
+.category-card:hover::before {
+    opacity: 1;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 45px rgba(15, 23, 42, 0.14);
+    border-color: #2563eb;
+}
+
+/* ===========================
+   ICON
+=========================== */
+
+.category-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: #eff6ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    transition: .3s;
+}
+
+.category-card:hover .category-icon {
+    background: #2563eb;
+    transform: scale(1.08);
+}
+
+/* ===========================
+   TITLE
+=========================== */
+
+.category-card h3 {
+    font-size: 1.25rem;
+    color: #1f2937;
+    margin: 0;
+}
+
+/* ===========================
+   DESCRIPTION
+=========================== */
+
+.category-card p {
+    color: #6b7280;
+    line-height: 1.6;
+    font-size: .95rem;
+    margin: 0;
+}
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media (max-width: 992px) {
+
+    .category-page {
+        padding: 2rem 5%;
+    }
+
+    .category-grid {
+        gap: 1.6rem;
+    }
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 768px) {
+
+    .category-page {
+        padding: 2rem 1.2rem;
+    }
+
+    .category-container h1 {
+        font-size: 1.9rem;
+    }
+
+    .category-container>p {
+        font-size: .95rem;
+        margin-bottom: 2rem;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 1.3rem;
+    }
+
+    .category-card {
+        padding: 1.6rem;
+    }
+
+    .category-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 1.8rem;
+    }
+
+    .category-card h3 {
+        font-size: 1.1rem;
+    }
+
+}
+
+/* ===========================
+   SMALL PHONES
+=========================== */
+
+@media (max-width: 480px) {
+
+    .category-page {
+        padding: 1rem;
+    }
+
+    .category-container h1 {
+        font-size: 1.6rem;
+    }
+
+    .category-container>p {
+        font-size: .9rem;
+    }
+
+    .category-card {
+        border-radius: 14px;
+        padding: 1.3rem;
+    }
+
+    .category-card p {
+        font-size: .88rem;
+    }
+
+}

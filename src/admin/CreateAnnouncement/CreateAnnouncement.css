@@ -1,0 +1,284 @@
+/* ==========================================
+   PAGE
+========================================== */
+
+.announcement-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px;
+
+    background: #f8fafc;
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.announcement-card {
+
+    width: 100%;
+    max-width: 720px;
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    padding: 40px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ==========================================
+   TITLE
+========================================== */
+
+.announcement-card h1 {
+
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+
+    color: #0f172a;
+}
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.error {
+
+    margin: 0;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    background: #fef2f2;
+
+    color: #dc2626;
+
+    font-weight: 500;
+
+    text-align: center;
+}
+
+/* ==========================================
+   INPUT GROUP
+========================================== */
+
+.input-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.input-group label {
+
+    font-size: .98rem;
+
+    font-weight: 600;
+
+    color: #334155;
+}
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+.input-group input,
+.input-group textarea {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 12px;
+
+    font-size: 1rem;
+
+    font-family: inherit;
+
+    box-sizing: border-box;
+
+    transition: all .3s ease;
+
+    background: #ffffff;
+}
+
+.input-group textarea {
+
+    resize: vertical;
+
+    min-height: 150px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+}
+
+/* ==========================================
+   FILE INPUT
+========================================== */
+
+input[type="file"] {
+
+    padding: 12px;
+
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+
+    border: none;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    margin-right: 14px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+input[type="file"]::file-selector-button:hover {
+
+    background: #1d4ed8;
+}
+
+/* ==========================================
+   SUBMIT BUTTON
+========================================== */
+
+.announcement-card button {
+
+    width: 260px;
+
+    align-self: center;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all .3s ease;
+}
+
+.announcement-card button:hover:not(:disabled) {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 12px 24px rgba(37,99,235,.22);
+}
+
+.announcement-card button:disabled {
+
+    background: #94a3b8;
+
+    cursor: not-allowed;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width:768px){
+
+    .announcement-card{
+
+        padding:30px 24px;
+    }
+
+    .announcement-card h1{
+
+        font-size:1.7rem;
+    }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:576px){
+
+    .announcement-page{
+
+        padding:20px 14px;
+    }
+
+    .announcement-card{
+
+        padding:24px 18px;
+
+        border-radius:16px;
+
+        gap:20px;
+    }
+
+    .announcement-card h1{
+
+        font-size:1.45rem;
+    }
+
+    .input-group input,
+    .input-group textarea{
+
+        font-size:.95rem;
+    }
+
+    .announcement-card button{
+
+        width:100%;
+
+        height:48px;
+
+        font-size:.95rem;
+    }
+
+}

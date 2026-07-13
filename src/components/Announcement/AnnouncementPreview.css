@@ -1,0 +1,161 @@
+/* ==========================================
+   ANNOUNCEMENT PREVIEW
+========================================== */
+
+.announcement-preview {
+    width:min(1400px,95%);
+    margin:35px auto;
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    padding:32px;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.06);
+
+    display:flex;
+    flex-direction:column;
+
+    gap:30px;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.announcement-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.announcement-preview-header > div {
+    flex: 1;
+}
+
+.announcement-preview-header h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.announcement-preview-header p {
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 1rem;
+}
+
+/* ==========================================
+   VIEW ALL BUTTON
+========================================== */
+
+.announcement-view-btn {
+    width: 140px;
+    height: 46px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    flex-shrink: 0;
+}
+
+.announcement-view-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.announcement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+
+    .announcement-preview {
+        width: 92%;
+        padding: 26px;
+    }
+
+    .announcement-preview-header h2 {
+        font-size: 1.8rem;
+    }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .announcement-preview {
+        width: 95%;
+        padding: 22px;
+    }
+
+    .announcement-preview-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .announcement-preview-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .announcement-preview-header p {
+        font-size: 0.95rem;
+    }
+
+    .announcement-view-btn {
+        width: 120px;
+        height: 42px;
+        font-size: 0.85rem;
+    }
+
+    .announcement-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+    .announcement-preview-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .announcement-view-btn {
+        width: 100%;
+        max-width: 180px;
+    }
+
+}

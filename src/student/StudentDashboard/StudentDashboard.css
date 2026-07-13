@@ -1,0 +1,24 @@
+.student-dashboard{
+    width:100%;
+    min-height:100vh;
+
+    background-color:#f9f9f9;
+padding: 32px;
+    padding:36px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:36px;
+}
+
+@media(max-width:768px){
+
+.student-dashboard{
+
+    padding:18px;
+    gap:24px;
+
+}
+
+}

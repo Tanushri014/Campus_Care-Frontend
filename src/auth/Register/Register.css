@@ -1,0 +1,267 @@
+.register-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ededef, #1e40af);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 560px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.register-header h1 {
+    color: #2563eb;
+    font-size: 2.2rem;
+    margin-bottom: .5rem;
+    font-weight: 700;
+}
+
+.register-header h2 {
+    color: #1e293b;
+    font-size: 1.7rem;
+    margin-bottom: .5rem;
+}
+
+.register-header p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: .95rem;
+}
+
+/* ===========================
+        GOOGLE BUTTON
+=========================== */
+
+.google-btn {
+    width: 100%;
+    padding: .9rem;
+    border: 1px solid #dbe3ec;
+    border-radius: 12px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    cursor: pointer;
+    font-size: .95rem;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.google-btn img {
+    width: 22px;
+    height: 22px;
+}
+
+.google-btn:hover {
+    background: #f8fafc;
+    border-color: #2563eb;
+}
+
+/* ===========================
+          DIVIDER
+=========================== */
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 1.8rem 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.divider span {
+    padding: 0 1rem;
+    color: #64748b;
+    font-size: .9rem;
+}
+
+/* ===========================
+           FORM
+=========================== */
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-row {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.4rem;
+}
+
+.input-group label {
+    margin-bottom: .45rem;
+    color: #334155;
+    font-size: .92rem;
+    font-weight: 600;
+}
+
+.input-group input {
+    padding: .9rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: .95rem;
+    outline: none;
+    transition: .3s;
+    background: #fff;
+}
+
+.input-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+}
+
+.input-group input::placeholder {
+    color: #94a3b8;
+}
+
+/* ===========================
+        ERROR
+=========================== */
+
+.error-message {
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: .8rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: .9rem;
+}
+
+/* ===========================
+        BUTTON
+=========================== */
+
+.register-btn {
+    width: 100%;
+    padding: .95rem;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.register-btn:hover:not(:disabled) {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.register-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+}
+
+/* ===========================
+       LOGIN TEXT
+=========================== */
+
+.login-text {
+    margin-top: 1.8rem;
+    text-align: center;
+    color: #64748b;
+    font-size: .95rem;
+}
+
+.login-text a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+
+/* ===========================
+         TABLET
+=========================== */
+
+@media (max-width:768px){
+
+    .register-page{
+        padding:1rem;
+    }
+
+    .register-card{
+        padding:2rem;
+    }
+
+    .register-header h1{
+        font-size:2rem;
+    }
+
+    .register-header h2{
+        font-size:1.5rem;
+    }
+
+}
+
+/* ===========================
+          MOBILE
+=========================== */
+
+@media (max-width:600px){
+
+    .register-card{
+        padding:1.5rem;
+        border-radius:16px;
+    }
+
+    .name-row{
+        grid-template-columns:1fr;
+    }
+
+    .register-header h1{
+        font-size:1.8rem;
+    }
+
+    .register-header h2{
+        font-size:1.3rem;
+    }
+
+    .register-header p{
+        font-size:.9rem;
+    }
+
+    .google-btn,
+    .register-btn{
+        font-size:.9rem;
+    }
+
+    .input-group input{
+        font-size:.9rem;
+    }
+
+}

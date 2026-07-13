@@ -1,0 +1,239 @@
+/* ==========================================
+   LOST & FOUND PREVIEW
+========================================== */
+
+.lostfound-preview {
+     width:min(1400px,95%);
+    margin:35px auto;
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    padding:32px;
+
+    box-shadow:0 10px 30px rgba(15,23,42,.06);
+
+    display:flex;
+    flex-direction:column;
+
+    gap:30px;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.preview-header h2 {
+    margin: 0;
+
+    font-size: 2rem;
+    font-weight: 700;
+
+    color: #0f172a;
+}
+
+.preview-header p {
+    margin-top: 6px;
+
+    color: #64748b;
+
+    font-size: 1rem;
+}
+
+/* ==========================================
+   ADD ITEM BUTTON
+========================================== */
+
+.add-item-btn {
+    width: 220px;
+    height: 48px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-item-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22);
+}
+
+@media (max-width: 768px) {
+    .add-item-btn {
+        width: 200px;
+        height: 46px;
+    }
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.lostfound-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 24px;
+}
+
+/* ==========================================
+   EMPTY / LOADING / ERROR
+========================================== */
+
+.lostfound-preview p {
+
+    color: #64748b;
+
+    font-size: .97rem;
+}
+
+/* ==========================================
+   VIEW ALL
+========================================== */
+
+.view-all {
+    display: flex;
+    justify-content: center;
+}
+
+.view-all button {
+
+    width: 100%;
+    max-width: 420px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all .3s ease;
+}
+
+.view-all button:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 20px rgba(37, 99, 235, .22);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+
+    .lostfound-preview {
+        padding: 26px;
+    }
+
+    .preview-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .add-item-btn {
+        width: 100%;
+    }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .lostfound-preview {
+
+        padding: 22px;
+
+        border-radius: 18px;
+    }
+
+    .preview-header h2 {
+
+        font-size: 1.7rem;
+    }
+
+    .preview-header p {
+
+        font-size: .95rem;
+    }
+
+    .lostfound-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .view-all button {
+
+        max-width: 100%;
+    }
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+    .lostfound-preview {
+
+        padding: 18px;
+    }
+
+    .preview-header h2 {
+
+        font-size: 1.5rem;
+    }
+
+    .add-item-btn {
+
+        height: 44px;
+
+        font-size: .9rem;
+    }
+
+    .view-all button {
+
+        height: 46px;
+
+        font-size: .95rem;
+    }
+
+}

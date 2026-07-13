@@ -1,0 +1,266 @@
+/* ==================================
+   PAGE
+================================== */
+
+.complaint-details-page {
+    max-width: 1500px;
+    margin: 40px auto;
+    padding: 0 24px 60px;
+}
+
+/* ==================================
+   BACK BUTTON
+================================== */
+
+.back-button {
+    display: block;
+    width: 40%;
+    min-width: 260px;
+    max-width: 450px;
+    height: 52px;
+
+    margin: 0 auto 35px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(37, 99, 235, .28);
+}
+
+/* ==================================
+   CARD
+================================== */
+
+.details-card {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+
+    background: #fff;
+
+    border-radius: 24px;
+
+    padding: 45px;
+
+    box-shadow: 0 10px 35px rgba(15, 23, 42, .06);
+}
+
+.details-card h1 {
+    text-align: center;
+    margin-bottom: 35px;
+
+    color: #0f172a;
+
+    font-size: 42px;
+    font-weight: 700;
+}
+
+/* ==================================
+   STATUS
+================================== */
+
+.status-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 22px;
+
+    background: #f8fafc;
+
+    border-radius: 14px;
+
+    margin-bottom: 28px;
+}
+
+.status-section span {
+    font-weight: 600;
+    color: #475569;
+}
+
+.status {
+    padding: 8px 18px;
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.status.pending {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.status.in_progress {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.status.completed {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status.rejected {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* ==================================
+   INFORMATION
+================================== */
+
+.info-group {
+    margin-bottom: 24px;
+}
+
+.info-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #475569;
+}
+
+.info-group p {
+    margin: 0;
+
+    padding: 16px;
+
+    background: #f8fafc;
+
+    border-radius: 12px;
+
+    color: #1e293b;
+
+    line-height: 1.7;
+}
+
+/* ==================================
+   IMAGE
+================================== */
+
+.info-group img {
+    width: 100%;
+    max-height: 420px;
+
+    object-fit: contain;
+
+    border-radius: 16px;
+
+    border: 1px solid #e2e8f0;
+
+    margin-top: 10px;
+}
+
+/* ==================================
+   ADMIN RESPONSE
+================================== */
+
+.admin-message {
+    margin-top: 35px;
+
+    padding: 24px;
+
+    border-radius: 16px;
+
+    background: #eff6ff;
+
+    border-left: 5px solid #2563eb;
+}
+
+.admin-message h3 {
+    margin: 0 0 12px;
+
+    color: #1e40af;
+}
+
+.admin-message p {
+    margin: 0;
+
+    line-height: 1.7;
+
+    color: #334155;
+}
+
+/* ==================================
+   FEEDBACK BUTTON
+================================== */
+
+.feedback-btn {
+    width: 100%;
+
+    margin-top: 35px;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.feedback-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(37, 99, 235, .28);
+}
+
+/* ==================================
+   LOADING / ERROR
+================================== */
+
+.complaint-details-page h2 {
+    text-align: center;
+    margin-top: 60px;
+    color: #334155;
+}
+
+/* ==================================
+   RESPONSIVE
+================================== */
+
+@media (max-width: 768px) {
+
+    .back-button {
+        width: 90%;
+    }
+
+    .details-card {
+        padding: 28px 22px;
+    }
+
+    .details-card h1 {
+        font-size: 32px;
+    }
+
+    .status-section {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+}
