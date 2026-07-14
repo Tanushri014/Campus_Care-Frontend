@@ -1,213 +1,135 @@
-/* ===========================
-   ADD LOST & FOUND PAGE
-=========================== */
+* {
+    box-sizing: border-box;
+}
 
 .add-lostfound-page {
     min-height: 100vh;
-    background: #f5f7fb;
+    width: 100%;
+    background: linear-gradient(180deg, #eef3fc 0%, #ffffff 100%);
+    padding: 30px 20px 60px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 2rem;
 }
-
-/* ===========================
-   CARD
-=========================== */
 
 .add-lostfound-card {
     width: 100%;
-    max-width: 750px;
-    background: #ffffff;
-    border-radius: 18px;
-    padding: 2.5rem;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-    animation: fadeIn 0.35s ease;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(15, 23, 41, 0.08);
+    padding: 40px;
+}
+
+.add-lostfound-card .back-btn {
+    background: none;
+    border: 2px solid #e5e7eb;
+    color: #1f2937;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.add-lostfound-card .back-btn:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
 }
 
 .add-lostfound-card h1 {
-    color: #2563eb;
-    margin: 1rem 0 0.5rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f1729;
+    margin: 0 0 8px;
 }
 
-.add-lostfound-card>p {
+.add-lostfound-card > p {
+    font-size: 0.92rem;
     color: #6b7280;
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    margin: 0 0 28px;
 }
-
-/* ===========================
-   BACK BUTTON
-=========================== */
-
-.back-btn {
-    background: transparent;
-    border: 1px solid #d1d5db;
-    color: #374151;
-    padding: 0.65rem 1.1rem;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-}
-
-.back-btn:hover {
-    background: #2563eb;
-    border-color: #2563eb;
-    color: #ffffff;
-}
-
-/* ===========================
-   FORM
-=========================== */
 
 .add-lostfound-card form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 20px;
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
+    gap: 6px;
 }
 
 .input-group label {
+    font-size: 0.88rem;
     font-weight: 600;
-    color: #374151;
-    margin-bottom: 0.6rem;
+    color: #1f2937;
 }
 
-.input-group input,
+.input-group input[type="text"],
 .input-group select,
 .input-group textarea {
     width: 100%;
-    padding: 0.95rem 1rem;
-    border: 1px solid #d1d5db;
+    padding: 12px 14px;
+    border: 2px solid #e5e7eb;
     border-radius: 10px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     outline: none;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
     font-family: inherit;
-    background: #fff;
-}
-
-.input-group textarea {
     resize: vertical;
-    min-height: 130px;
+    background: #fff;
+    transition: border-color 0.2s ease;
 }
 
-.input-group input:focus,
+.input-group input[type="text"]:focus,
 .input-group select:focus,
 .input-group textarea:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    border-color: #2b5cf0;
 }
 
-/* ===========================
-   FILE INPUT
-=========================== */
-
 .input-group input[type="file"] {
-    padding: 0.75rem;
+    font-size: 0.88rem;
+    padding: 10px 0;
     cursor: pointer;
 }
 
 .input-group small {
-    margin-top: 0.5rem;
-    color: #6b7280;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    color: #9ca3af;
 }
 
-/* ===========================
-   SUBMIT BUTTON
-=========================== */
-
 .submit-btn {
-    margin-top: 0.5rem;
-    padding: 1rem;
+    width: 100%;
+    background: #2b5cf0;
+    color: #fff;
     border: none;
+    outline: none;
+    padding: 13px 0;
     border-radius: 10px;
-    background: #2563eb;
-    color: #ffffff;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    margin-top: 6px;
+    transition: background 0.2s ease;
 }
 
 .submit-btn:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
+    background: #1e46c9;
 }
 
-.submit-btn:active {
-    transform: scale(0.98);
-}
-
-/* ===========================
-   ANIMATION
-=========================== */
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ===========================
-   RESPONSIVE
-=========================== */
-
-@media (max-width: 768px) {
-
-    .add-lostfound-page {
-        padding: 1.5rem;
-    }
-
+/* ==================================================== */
+/* RESPONSIVE                                            */
+/* ==================================================== */
+@media (max-width: 600px) {
     .add-lostfound-card {
-        padding: 2rem;
+        padding: 28px 22px;
+        border-radius: 16px;
     }
 
     .add-lostfound-card h1 {
-        font-size: 1.7rem;
+        font-size: 1.3rem;
     }
-
-}
-
-@media (max-width: 480px) {
-
-    .add-lostfound-page {
-        padding: 1rem;
-    }
-
-    .add-lostfound-card {
-        padding: 1.5rem;
-        border-radius: 14px;
-    }
-
-    .add-lostfound-card h1 {
-        font-size: 1.5rem;
-    }
-
-    .back-btn,
-    .submit-btn,
-    .input-group input,
-    .input-group select,
-    .input-group textarea {
-        font-size: 0.95rem;
-    }
-
-    .submit-btn {
-        width: 100%;
-    }
-
 }

@@ -1,152 +1,72 @@
-/* ==========================================
-   ANNOUNCEMENT PREVIEW
-========================================== */
-
-.announcement-preview {
-    width:min(1400px,95%);
-    margin:35px auto;
-
-    background:#ffffff;
-
-    border-radius:22px;
-
-    padding:32px;
-
-    box-shadow:0 10px 30px rgba(15,23,42,.06);
-
-    display:flex;
-    flex-direction:column;
-
-    gap:30px;
+* {
+    box-sizing: border-box;
 }
 
-/* ==========================================
-   HEADER
-========================================== */
+.announcement-preview {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
 
 .announcement-preview-header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: flex-start;
     gap: 20px;
-    margin-bottom: 32px;
-}
-
-.announcement-preview-header > div {
-    flex: 1;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
 }
 
 .announcement-preview-header h2 {
-    margin: 0;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #0f172a;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0f1729;
+    margin: 0 0 6px;
 }
 
 .announcement-preview-header p {
-    margin-top: 8px;
-    color: #64748b;
-    font-size: 1rem;
+    font-size: 0.92rem;
+    color: #6b7280;
+    margin: 0;
 }
 
-/* ==========================================
-   VIEW ALL BUTTON
-========================================== */
-
 .announcement-view-btn {
-    width: 140px;
-    height: 46px;
-
+    background: #2b5cf0;
+    color: #fff;
     border: none;
-    border-radius: 12px;
-
-    background: #2563eb;
-    color: #ffffff;
-
-    font-size: 0.95rem;
+    outline: none;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 0.9rem;
     font-weight: 600;
-
     cursor: pointer;
-    transition: all 0.3s ease;
-
-    flex-shrink: 0;
+    white-space: nowrap;
+    transition: background 0.2s ease;
 }
 
 .announcement-view-btn:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    background: #1e46c9;
 }
-
-/* ==========================================
-   GRID
-========================================== */
 
 .announcement-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
 }
 
-/* ==========================================
-   TABLET
-========================================== */
-
-@media (max-width: 992px) {
-
-    .announcement-preview {
-        width: 92%;
-        padding: 26px;
-    }
-
-    .announcement-preview-header h2 {
-        font-size: 1.8rem;
-    }
-
-}
-
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media (max-width: 768px) {
-
-    .announcement-preview {
-        width: 95%;
-        padding: 22px;
-    }
-
-    .announcement-preview-header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-
-    .announcement-preview-header h2 {
-        font-size: 1.5rem;
-    }
-
-    .announcement-preview-header p {
-        font-size: 0.95rem;
-    }
-
-    .announcement-view-btn {
-        width: 120px;
-        height: 42px;
-        font-size: 0.85rem;
-    }
-
+/* ==================================================== */
+/* RESPONSIVE                                            */
+/* ==================================================== */
+@media (max-width: 900px) {
     .announcement-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
-
 }
 
-/* ==========================================
-   SMALL MOBILE
-========================================== */
-
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+    .announcement-preview {
+        padding: 24px 16px;
+    }
 
     .announcement-preview-header {
         flex-direction: column;
@@ -155,7 +75,10 @@
 
     .announcement-view-btn {
         width: 100%;
-        max-width: 180px;
+        text-align: center;
     }
 
+    .announcement-grid {
+        grid-template-columns: 1fr;
+    }
 }

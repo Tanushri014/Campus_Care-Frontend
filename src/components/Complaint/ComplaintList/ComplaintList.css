@@ -1,249 +1,189 @@
-/* ==========================
-   PAGE
-========================== */
-
-.complaint-list-page{
-    width:min(1400px,95%);
-    margin:40px auto;
+* {
+    box-sizing: border-box;
 }
 
-/* ==========================
-   BACK BUTTON
-========================== */
-
-.back-btn-wrapper{
-    display:flex;
-    justify-content:center;
-    margin-bottom:30px;
+.complaint-list-page {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(180deg, #eef3fc 0%, #ffffff 100%);
+    padding: 30px 40px 60px;
 }
 
-.back-btn{
-    width:280px;
-    height:48px;
-
-    border:none;
-    border-radius:12px;
-
-    background:#2563eb;
-    color:#fff;
-
-    font-size:1rem;
-    font-weight:600;
-
-    cursor:pointer;
-    transition:.3s;
+.complaint-list-page > h2 {
+    text-align: center;
+    color: #1f2937;
+    margin-top: 80px;
 }
 
-.back-btn:hover{
-    background:#1d4ed8;
-    transform:translateY(-2px);
+.back-btn-wrapper {
+    max-width: 1200px;
+    margin: 0 auto 20px;
 }
 
-/* ==========================
-   HEADER
-========================== */
-
-.complaint-header-box{
-
-    background:#f8fafc;
-
-    border:1px solid #e2e8f0;
-
-    border-radius:20px;
-
-    padding:35px;
-
-    margin-bottom:35px;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:24px;
+.back-btn {
+    background: none;
+    border: 2px solid #e5e7eb;
+    color: #1f2937;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.list-header{
-    text-align:center;
+.back-btn:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
 }
 
-.list-header h1{
-
-    margin:0;
-
-    font-size:2.3rem;
-
-    color:#0f172a;
+/* ---------- HEADER BOX ---------- */
+.complaint-header-box {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(15, 23, 41, 0.06);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
 }
 
-.list-header p{
-
-    margin-top:10px;
-
-    color:#64748b;
-
-    font-size:1rem;
+.list-header h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f1729;
+    margin: 0 0 6px;
 }
 
-/* ==========================
-   SEARCH
-========================== */
-
-.search-wrapper{
-
-    display:flex;
-    justify-content:center;
+.list-header p {
+    font-size: 0.92rem;
+    color: #6b7280;
+    margin: 0;
 }
 
-.search-box{
-
-    width:100%;
-    max-width:600px;
-
-    height:52px;
-
-    border:1px solid #d1d5db;
-
-    border-radius:14px;
-
-    padding:0 20px;
-
-    font-size:1rem;
-
-    outline:none;
-
-    transition:.3s;
+.search-wrapper {
+    flex-shrink: 0;
 }
 
-.search-box:focus{
-
-    border-color:#2563eb;
-
-    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+.search-box {
+    width: 280px;
+    padding: 11px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color 0.2s ease;
 }
 
-/* ==========================
-   GRID
-========================== */
-
-.complaint-list-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-
-    gap:26px;
+.search-box:focus {
+    border-color: #2b5cf0;
 }
 
-/* ==========================
-   EMPTY STATE
-========================== */
-
-.empty-state{
-
-    grid-column:1/-1;
-
-    background:#fff;
-
-    padding:60px;
-
-    border-radius:20px;
-
-    text-align:center;
-
-    border:1px solid #e2e8f0;
+/* ---------- GRID ---------- */
+.complaint-list-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
 }
 
-.empty-state h3{
-
-    margin-bottom:10px;
-
-    color:#0f172a;
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    background: #fff;
+    border-radius: 16px;
+    padding: 60px 20px;
+    box-shadow: 0 12px 30px rgba(15, 23, 41, 0.06);
 }
 
-.empty-state p{
-
-    color:#64748b;
+.empty-state h3 {
+    font-size: 1.2rem;
+    color: #0f1729;
+    margin: 0 0 8px;
 }
 
-/* ==========================
-   PAGINATION
-========================== */
-
-.pagination{
-
-    display:flex;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin:45px 0;
+.empty-state p {
+    font-size: 0.92rem;
+    color: #6b7280;
+    margin: 0;
 }
 
-.pagination button{
-
-    min-width:46px;
-
-    height:46px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#e2e8f0;
-
-    cursor:pointer;
-
-    font-weight:600;
-
-    transition:.3s;
+/* ---------- PAGINATION ---------- */
+.pagination {
+    max-width: 1200px;
+    margin: 36px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
-.pagination button:hover{
-
-    background:#2563eb;
-
-    color:white;
+.pagination button {
+    min-width: 40px;
+    padding: 9px 14px;
+    border: 2px solid #e5e7eb;
+    background: #fff;
+    color: #1f2937;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.active-page{
-
-    background:#2563eb !important;
-
-    color:white;
+.pagination button:hover:not(:disabled) {
+    border-color: #2b5cf0;
+    color: #2b5cf0;
 }
 
-/* ==========================
-   RESPONSIVE
-========================== */
+.pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
 
-@media(max-width:768px){
+.pagination button.active-page {
+    background: #2b5cf0;
+    border-color: #2b5cf0;
+    color: #fff;
+}
 
-    .complaint-list-page{
-
-        width:94%;
+/* ==================================================== */
+/* RESPONSIVE                                            */
+/* ==================================================== */
+@media (max-width: 768px) {
+    .complaint-list-page {
+        padding: 24px 20px 50px;
     }
 
-    .complaint-header-box{
-
-        padding:24px;
+    .complaint-header-box {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 24px;
     }
 
-    .list-header h1{
-
-        font-size:1.9rem;
+    .search-box {
+        width: 100%;
     }
 
-    .complaint-list-grid{
+    .complaint-list-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
-        grid-template-columns:1fr;
+@media (max-width: 420px) {
+    .list-header h1 {
+        font-size: 1.3rem;
     }
 
-    .back-btn{
-
-        width:100%;
-        max-width:280px;
+    .pagination button {
+        min-width: 36px;
+        padding: 8px 10px;
+        font-size: 0.85rem;
     }
-
 }

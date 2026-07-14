@@ -1,135 +1,110 @@
-.complaint-success-page {
-    min-height: 100vh;
-    background: #f5f7fb;
+* {
+    box-sizing: border-box;
+}
+
+.complaint-preview {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.preview-header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 2rem;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
 }
 
-.complaint-success-card {
-    width: 100%;
-    max-width: 560px;
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 3rem;
-    text-align: center;
-    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+.preview-header h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0f1729;
+    margin: 0 0 6px;
 }
 
-.success-icon {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 1.8rem;
-    border-radius: 50%;
-    background: #22c55e;
-    color: #fff;
-    font-size: 2.8rem;
-    font-weight: 700;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.complaint-success-card h1 {
-    color: #1f2937;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.complaint-success-card p {
+.preview-header p {
+    font-size: 0.92rem;
     color: #6b7280;
-    line-height: 1.8;
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    margin: 0;
 }
 
-.dashboard-button {
-    background: #2563eb;
+.new-complaint-btn {
+    background: #2b5cf0;
     color: #fff;
     border: none;
-    border-radius: 12px;
-    padding: 0.95rem 2rem;
-    font-size: 1rem;
+    outline: none;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all .3s ease;
+    white-space: nowrap;
+    transition: background 0.2s ease;
 }
 
-.dashboard-button:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+.new-complaint-btn:hover {
+    background: #1e46c9;
 }
 
-.dashboard-button:active {
-    transform: translateY(0);
+.complaint-preview > p {
+    font-size: 0.95rem;
+    color: #6b7280;
+    text-align: center;
+    padding: 30px 0;
 }
 
-/* Tablet */
+.complaint-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
 
-@media (max-width: 768px) {
+.view-all {
+    text-align: center;
+    margin-top: 26px;
+}
 
-    .complaint-success-page {
-        padding: 1.5rem;
+.view-all button {
+    background: none;
+    border: none;
+    outline: none;
+    color: #2b5cf0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.view-all button:hover {
+    text-decoration: underline;
+}
+
+/* ==================================================== */
+/* RESPONSIVE                                            */
+/* ==================================================== */
+@media (max-width: 900px) {
+    .complaint-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .complaint-preview {
+        padding: 24px 16px;
     }
 
-    .complaint-success-card {
-        padding: 2.2rem;
+    .preview-header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .success-icon {
-        width: 75px;
-        height: 75px;
-        font-size: 2.3rem;
-    }
-
-    .complaint-success-card h1 {
-        font-size: 1.6rem;
-    }
-
-    .complaint-success-card p {
-        font-size: 0.95rem;
-    }
-
-    .dashboard-button {
+    .new-complaint-btn {
         width: 100%;
+        text-align: center;
     }
 
-}
-
-/* Mobile */
-
-@media (max-width: 480px) {
-
-    .complaint-success-page {
-        padding: 1rem;
+    .complaint-grid {
+        grid-template-columns: 1fr;
     }
-
-    .complaint-success-card {
-        padding: 1.8rem;
-        border-radius: 16px;
-    }
-
-    .success-icon {
-        width: 68px;
-        height: 68px;
-        font-size: 2rem;
-        margin-bottom: 1.3rem;
-    }
-
-    .complaint-success-card h1 {
-        font-size: 1.35rem;
-    }
-
-    .complaint-success-card p {
-        font-size: 0.9rem;
-        line-height: 1.6;
-    }
-
-    .dashboard-button {
-        padding: 0.85rem;
-        font-size: 0.95rem;
-    }
-
 }

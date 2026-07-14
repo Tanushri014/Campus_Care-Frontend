@@ -1,186 +1,78 @@
-.complaint-list-page {
-    min-height: 100vh;
-    background: #f5f7fb;
-    padding: 2rem;
+* {
+    box-sizing: border-box;
 }
 
-/* ===========================
-        BACK BUTTON
-=========================== */
+.complaint-preview {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(15, 23, 41, 0.06);
+    padding: 30px;
+}
 
-.back-btn {
-    background: #2563eb;
-    color: #fff;
+.preview-header {
+    margin-bottom: 24px;
+}
+
+.preview-header h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #0f1729;
+    margin: 0 0 6px;
+}
+
+.preview-header p {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.complaint-preview > p {
+    font-size: 0.95rem;
+    color: #6b7280;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.complaint-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.view-all {
+    text-align: center;
+    margin-top: 26px;
+}
+
+.view-all button {
+    background: none;
     border: none;
-    padding: 0.8rem 1.4rem;
-    border-radius: 10px;
+    outline: none;
+    color: #2b5cf0;
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    margin-bottom: 2rem;
-    transition: all .3s ease;
 }
 
-.back-btn:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
+.view-all button:hover {
+    text-decoration: underline;
 }
 
-/* ===========================
-        HEADER
-=========================== */
-
-.list-header {
-    margin-bottom: 2rem;
+/* ==================================================== */
+/* RESPONSIVE                                            */
+/* ==================================================== */
+@media (max-width: 900px) {
+    .complaint-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.list-header h1 {
-    font-size: 2rem;
-    color: #1e293b;
-    font-weight: 700;
-    margin-bottom: .4rem;
-}
-
-.list-header p {
-    color: #64748b;
-    font-size: 1rem;
-}
-
-/* ===========================
-        SEARCH
-=========================== */
-
-.search-box {
-    width: 100%;
-    max-width: 420px;
-    padding: .9rem 1rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 12px;
-    background: #fff;
-    font-size: .95rem;
-    outline: none;
-    transition: .3s;
-    margin-bottom: 2rem;
-}
-
-.search-box:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 4px rgba(37,99,235,.12);
-}
-
-/* ===========================
-        GRID
-=========================== */
-
-.complaint-list-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 1.5rem;
-}
-
-/* ===========================
-        EMPTY STATE
-=========================== */
-
-.empty-state {
-    grid-column: 1 / -1;
-    background: #fff;
-    border-radius: 18px;
-    padding: 4rem 2rem;
-    text-align: center;
-    box-shadow: 0 8px 24px rgba(15,23,42,.08);
-}
-
-.empty-state h3 {
-    color: #1e293b;
-    font-size: 1.4rem;
-    margin-bottom: .5rem;
-}
-
-.empty-state p {
-    color: #64748b;
-}
-
-/* ===========================
-        LOADING & ERROR
-=========================== */
-
-.complaint-list-page h2 {
-    text-align: center;
-    color: #475569;
-    margin-top: 5rem;
-}
-
-/* ===========================
-        TABLET
-=========================== */
-
-@media (max-width: 992px) {
-
-    .complaint-list-page {
-        padding: 1.5rem;
+@media (max-width: 560px) {
+    .complaint-preview {
+        padding: 22px 18px;
     }
 
-    .complaint-list-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-
-}
-
-/* ===========================
-        MOBILE
-=========================== */
-
-@media (max-width: 768px) {
-
-    .complaint-list-page {
-        padding: 1rem;
-    }
-
-    .back-btn {
-        width: 100%;
-        margin-bottom: 1.5rem;
-    }
-
-    .list-header {
-        text-align: center;
-    }
-
-    .list-header h1 {
-        font-size: 1.7rem;
-    }
-
-    .search-box {
-        max-width: 100%;
-    }
-
-    .complaint-list-grid {
+    .complaint-grid {
         grid-template-columns: 1fr;
     }
-
-}
-
-/* ===========================
-      SMALL PHONES
-=========================== */
-
-@media (max-width: 480px) {
-
-    .list-header h1 {
-        font-size: 1.5rem;
-    }
-
-    .list-header p {
-        font-size: .9rem;
-    }
-
-    .search-box {
-        font-size: .9rem;
-        padding: .8rem;
-    }
-
-    .empty-state {
-        padding: 3rem 1rem;
-    }
-
 }

@@ -1,116 +1,96 @@
-/* ==================================
-   PAGE
-================================== */
-
-.complaint-details-page {
-    max-width: 1500px;
-    margin: 40px auto;
-    padding: 0 24px 60px;
+* {
+    box-sizing: border-box;
 }
 
-/* ==================================
-   BACK BUTTON
-================================== */
+.complaint-details-page {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(180deg, #eef3fc 0%, #ffffff 100%);
+    padding: 40px 20px 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.complaint-details-page > h2 {
+    color: #1f2937;
+    font-size: 1.2rem;
+    margin-top: 80px;
+}
+
+.details-card {
+    width: 100%;
+    max-width: 720px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(15, 23, 41, 0.08);
+    padding: 40px;
+}
 
 .back-button {
-    display: block;
-    width: 40%;
-    min-width: 260px;
-    max-width: 450px;
-    height: 52px;
-
-    margin: 0 auto 35px;
-
-    border: none;
-    border-radius: 14px;
-
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-    color: #fff;
-
-    font-size: 16px;
+    background: none;
+    border: 2px solid #e5e7eb;
+    color: #1f2937;
+    font-size: 0.9rem;
     font-weight: 600;
-
+    padding: 9px 18px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: .3s;
+    margin-bottom: 24px;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .back-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(37, 99, 235, .28);
+    background: #f9fafb;
+    border-color: #d1d5db;
 }
 
-/* ==================================
-   CARD
-================================== */
-
-.details-card {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-
-    background: #fff;
-
-    border-radius: 24px;
-
-    padding: 45px;
-
-    box-shadow: 0 10px 35px rgba(15, 23, 42, .06);
+.details-card > h1 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #0f1729;
+    margin: 0 0 24px;
 }
 
-.details-card h1 {
-    text-align: center;
-    margin-bottom: 35px;
-
-    color: #0f172a;
-
-    font-size: 42px;
-    font-weight: 700;
-}
-
-/* ==================================
-   STATUS
-================================== */
-
+/* ---------- STATUS ---------- */
 .status-section {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-
-    padding: 18px 22px;
-
+    justify-content: space-between;
     background: #f8fafc;
-
-    border-radius: 14px;
-
-    margin-bottom: 28px;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
 }
 
-.status-section span {
+.status-section > span {
+    font-size: 0.95rem;
     font-weight: 600;
-    color: #475569;
+    color: #6b7280;
 }
 
 .status {
-    padding: 8px 18px;
-    border-radius: 999px;
-
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 30px;
+    text-transform: capitalize;
 }
 
 .status.pending {
-    background: #fff7ed;
-    color: #ea580c;
+    background: #fef1cf;
+    color: #b8860b;
 }
 
-.status.in_progress {
-    background: #eff6ff;
-    color: #2563eb;
+.status.in_progress,
+.status.progress {
+    background: #ece3fd;
+    color: #7c3aed;
 }
 
+.status.resolved,
 .status.completed {
-    background: #dcfce7;
-    color: #15803d;
+    background: #d9f7e6;
+    color: #16a34a;
 }
 
 .status.rejected {
@@ -118,149 +98,94 @@
     color: #dc2626;
 }
 
-/* ==================================
-   INFORMATION
-================================== */
-
+/* ---------- INFO GROUPS ---------- */
 .info-group {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 .info-group label {
     display: block;
-
-    margin-bottom: 8px;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    color: #475569;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
 }
 
 .info-group p {
+    font-size: 1rem;
+    color: #1f2937;
+    line-height: 1.6;
     margin: 0;
-
-    padding: 16px;
-
-    background: #f8fafc;
-
-    border-radius: 12px;
-
-    color: #1e293b;
-
-    line-height: 1.7;
 }
-
-/* ==================================
-   IMAGE
-================================== */
 
 .info-group img {
     width: 100%;
-    max-height: 420px;
-
-    object-fit: contain;
-
-    border-radius: 16px;
-
-    border: 1px solid #e2e8f0;
-
-    margin-top: 10px;
+    max-width: 320px;
+    border-radius: 12px;
+    margin-top: 6px;
+    display: block;
 }
 
-/* ==================================
-   ADMIN RESPONSE
-================================== */
-
+/* ---------- ADMIN RESPONSE ---------- */
 .admin-message {
-    margin-top: 35px;
-
-    padding: 24px;
-
-    border-radius: 16px;
-
-    background: #eff6ff;
-
-    border-left: 5px solid #2563eb;
+    background: #eef3fc;
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 30px;
 }
 
 .admin-message h3 {
-    margin: 0 0 12px;
-
-    color: #1e40af;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2b5cf0;
+    margin: 0 0 8px;
 }
 
 .admin-message p {
+    font-size: 0.95rem;
+    color: #1f2937;
+    line-height: 1.6;
     margin: 0;
-
-    line-height: 1.7;
-
-    color: #334155;
 }
 
-/* ==================================
-   FEEDBACK BUTTON
-================================== */
-
+/* ---------- FEEDBACK BUTTON ---------- */
 .feedback-btn {
     width: 100%;
-
-    margin-top: 35px;
-
-    height: 52px;
-
-    border: none;
-
-    border-radius: 14px;
-
-    background: linear-gradient(135deg, #2563eb, #3b82f6);
-
+    background: #2b5cf0;
     color: #fff;
-
-    font-size: 16px;
-    font-weight: 600;
-
+    border: none;
+    outline: none;
+    padding: 13px 0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
-
-    transition: .3s;
+    margin-top: 26px;
+    transition: background 0.2s ease;
 }
 
 .feedback-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(37, 99, 235, .28);
+    background: #1e46c9;
 }
 
-/* ==================================
-   LOADING / ERROR
-================================== */
-
-.complaint-details-page h2 {
-    text-align: center;
-    margin-top: 60px;
-    color: #334155;
-}
-
-/* ==================================
-   RESPONSIVE
-================================== */
-
-@media (max-width: 768px) {
-
-    .back-button {
-        width: 90%;
-    }
-
+/* ==================================================== */
+/* RESPONSIVE                                            */
+/* ==================================================== */
+@media (max-width: 600px) {
     .details-card {
         padding: 28px 22px;
+        border-radius: 16px;
     }
 
-    .details-card h1 {
-        font-size: 32px;
+    .details-card > h1 {
+        font-size: 1.4rem;
     }
 
     .status-section {
         flex-direction: column;
-        gap: 15px;
         align-items: flex-start;
+        gap: 10px;
     }
 }

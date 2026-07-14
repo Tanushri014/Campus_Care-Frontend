@@ -1,168 +1,203 @@
+* {
+    box-sizing: border-box;
+}
+
 .admin-complaints-page {
     min-height: 100vh;
-    background: #f5f7fb;
-    padding: 2rem;
+    width: 100%;
+    background: linear-gradient(180deg, #eef3fc 0%, #ffffff 100%);
+    padding: 30px 20px 60px;
 }
 
-.page-header {
-    margin-bottom: 2rem;
+.admin-complaints-page > h2 {
+    text-align: center;
+    color: #1f2937;
+    margin-top: 80px;
 }
 
-.page-header h1 {
-    font-size: 2rem;
-    color: #1e293b;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-}
-
-.page-header p {
-    color: #64748b;
-    font-size: 1rem;
+.admin-complaints-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .back-btn {
-    background: #2563eb;
-    color: #fff;
-    border: none;
-    padding: 0.75rem 1.4rem;
-    border-radius: 10px;
+    background: none;
+    border: 2px solid #e5e7eb;
+    color: #1f2937;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .back-btn:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #0f1729;
+    margin: 0 0 6px;
+}
+
+.page-header p {
+    font-size: 0.92rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.search-container {
+    margin-bottom: 28px;
 }
 
 .search-box {
     width: 100%;
-    max-width: 420px;
-    padding: 0.85rem 1rem;
-    border: 1px solid #dbe3ec;
-    border-radius: 12px;
-    font-size: 0.95rem;
+    max-width: 400px;
+    padding: 11px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 0.92rem;
     outline: none;
-    margin-bottom: 2rem;
-    transition: all 0.3s ease;
-    background: #fff;
+    transition: border-color 0.2s ease;
 }
 
 .search-box:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 4px rgba(37,99,235,0.12);
+    border-color: #2b5cf0;
 }
 
+/* ---------- GRID ---------- */
 .complaint-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
 }
 
 .complaint-card {
     background: #fff;
     border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 6px 18px rgba(15,23,42,0.08);
-    transition: all 0.3s ease;
+    box-shadow: 0 12px 30px rgba(15, 23, 41, 0.06);
+    padding: 22px;
     display: flex;
     flex-direction: column;
+    gap: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .complaint-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(15,23,42,0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(15, 23, 41, 0.1);
 }
 
-.complaint-card h3 {
-    color: #1e293b;
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-}
-
-.complaint-card p {
-    color: #64748b;
-    line-height: 1.6;
-    flex: 1;
-    margin-bottom: 1rem;
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .category {
-    display: inline-block;
-    background: #e0f2fe;
-    color: #0369a1;
-    padding: 0.4rem 0.9rem;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-right: 0.6rem;
-    margin-bottom: 1rem;
+    background: #eef3fc;
+    color: #2b5cf0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 30px;
+    text-transform: capitalize;
 }
 
 .status {
-    display: inline-block;
-    padding: 0.4rem 0.9rem;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-bottom: 1.2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 30px;
+    text-transform: capitalize;
 }
 
 .status.pending {
-    background: #fef3c7;
-    color: #b45309;
+    background: #fef1cf;
+    color: #b8860b;
 }
 
 .status.in_progress {
-    background: #dbeafe;
-    color: #1d4ed8;
+    background: #ece3fd;
+    color: #7c3aed;
 }
 
 .status.completed {
-    background: #dcfce7;
-    color: #15803d;
+    background: #d9f7e6;
+    color: #16a34a;
+}
+
+.complaint-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f1729;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.complaint-card p {
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
 }
 
 .details-btn {
-    width: 100%;
-    border: none;
-    background: #2563eb;
-    color: #fff;
-    padding: 0.85rem;
-    border-radius: 10px;
-    cursor: pointer;
+    align-self: flex-start;
+    background: none;
+    border: 2px solid #2b5cf0;
+    color: #2b5cf0;
+    font-size: 0.85rem;
     font-weight: 600;
-    transition: all 0.3s ease;
+    padding: 9px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: auto;
+    transition: background 0.2s ease;
 }
 
 .details-btn:hover {
-    background: #1d4ed8;
+    background: #eef3fc;
 }
 
+/* ---------- EMPTY STATE ---------- */
 .empty-state {
+    text-align: center;
     background: #fff;
     border-radius: 16px;
-    padding: 4rem 2rem;
-    text-align: center;
-    box-shadow: 0 6px 18px rgba(15,23,42,0.08);
+    padding: 60px 20px;
+    box-shadow: 0 12px 30px rgba(15, 23, 41, 0.06);
 }
 
 .empty-state h3 {
-    color: #1e293b;
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #0f1729;
+    margin: 0 0 8px;
 }
 
+.empty-state p {
+    font-size: 0.92rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* ==================================================== */
+/* RESPONSIVE                                            */
+/* ==================================================== */
 @media (max-width: 768px) {
-
     .admin-complaints-page {
-        padding: 1rem;
-    }
-
-    .page-header h1 {
-        font-size: 1.6rem;
+        padding: 24px 16px 50px;
     }
 
     .complaint-grid {
@@ -172,5 +207,15 @@
     .search-box {
         max-width: 100%;
     }
+}
 
+@media (max-width: 420px) {
+    .page-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .details-btn {
+        width: 100%;
+        text-align: center;
+    }
 }

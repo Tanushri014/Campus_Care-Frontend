@@ -1,58 +1,36 @@
-/* ==========================================
-   NAVBAR
-========================================== */
+* {
+    box-sizing: border-box;
+}
 
 .navbar {
     position: sticky;
     top: 0;
-    z-index: 1000;
-
+    left: 0;
     width: 100%;
-    background: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
-    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(15, 23, 41, 0.06);
+    z-index: 1000;
 }
 
 .navbar-container {
-    width: 92%;
-    max-width: 1400px;
-
-    height: 80px;
-
+    max-width: 1300px;
     margin: 0 auto;
-
+    padding: 18px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     position: relative;
 }
 
-/* ==========================================
-   LOGO
-========================================== */
-
+/* ---------- LOGO ---------- */
 .logo h2 {
-    margin: 0;
-
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 800;
-
-    color: #2563eb;
-
-    cursor: pointer;
-
-    transition: .3s;
+    color: #2b5cf0;
+    margin: 0;
 }
 
-.logo h2:hover {
-    color: #1d4ed8;
-}
-
-/* ==========================================
-   NAVIGATION
-========================================== */
-
+/* ---------- DESKTOP NAV LINKS ---------- */
 .nav-links {
     display: flex;
     align-items: center;
@@ -60,231 +38,146 @@
 }
 
 .nav-links a {
-
     text-decoration: none;
-
-    color: #475569;
-
-    font-weight: 600;
-
-    transition: .3s;
-
-    position: relative;
+    color: #1f2937;
+    font-weight: 500;
+    font-size: 1rem;
 }
 
 .nav-links a:hover {
-    color: #2563eb;
+    color: #2b5cf0;
 }
 
-.nav-links a::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: -6px;
-
-    width: 0;
-
-    height: 2px;
-
-    background: #2563eb;
-
-    transition: .3s;
+/* mobile-only buttons inside the dropdown, hidden on desktop */
+.mobile-buttons {
+    display: none;
 }
 
-.nav-links a:hover::after {
-
-    width: 100%;
-}
-
-/* ==========================================
-   BUTTONS
-========================================== */
-
+/* ---------- DESKTOP BUTTONS ---------- */
 .nav-buttons {
     display: flex;
-    gap: 16px;
-}
-
-.nav-buttons a,
-.mobile-buttons a {
-    text-decoration: none;
+    align-items: center;
+    gap: 14px;
 }
 
 .login-btn,
 .register-btn {
-
-    height: 46px;
-
-    padding: 0 28px;
-
-    border-radius: 12px;
-
-    font-size: .95rem;
-
+    font-size: 0.95rem;
     font-weight: 600;
-
+    padding: 10px 22px;
+    border-radius: 8px;
     cursor: pointer;
-
-    transition: .3s;
+    border: 2px solid #2b5cf0;
+    outline: none;
+    background: none;
+    line-height: 1;
 }
 
 .login-btn {
-
-    background: transparent;
-
-    color: #2563eb;
-
-    border: 2px solid #2563eb;
+    background: #fff;
+    color: #2b5cf0;
 }
 
 .login-btn:hover {
-
-    background: #2563eb;
-
-    color: white;
+    background: #eef3fc;
 }
 
 .register-btn {
-
-    background: #2563eb;
-
-    color: white;
-
-    border: none;
+    background: #2b5cf0;
+    color: #fff;
 }
 
 .register-btn:hover {
-
-    background: #1d4ed8;
+    background: #1e46c9;
+    border-color: #1e46c9;
 }
 
-/* ==========================================
-   HAMBURGER
-========================================== */
-
+/* ---------- HAMBURGER BUTTON (hidden on desktop) ---------- */
 .menu-btn {
-
     display: none;
-
     background: none;
-
     border: none;
-
+    outline: none;
+    font-size: 1.6rem;
+    color: #1f2937;
     cursor: pointer;
-
-    font-size: 2rem;
-
-    color: #2563eb;
-    width: 30%;
-}
-.menu-btn:hover{
-    color: white;
-}
-.mobile-buttons {
-
-    display: none;
+    padding: 4px;
+    line-height: 0;
 }
 
-/* ==========================================
-   TABLET & MOBILE
-========================================== */
+/* ==================================================== */
+/* MOBILE / TABLET                                       */
+/* ==================================================== */
+@media (max-width: 860px) {
 
-@media (max-width:900px){
-
-    .menu-btn{
-        display:block;
+    .navbar-container {
+        padding: 16px 20px;
     }
 
-    .nav-buttons{
-        display:none;
+    /* hide desktop-only button group */
+    .nav-buttons {
+        display: none;
     }
 
-    .nav-links{
-
-        position:absolute;
-
-        top:80px;
-
-        left:0;
-
-        width:100%;
-
-        background:white;
-
-        display:none;
-
-        flex-direction:column;
-
-        align-items:center;
-
-        gap:24px;
-
-        padding:30px 0;
-
-        border-bottom:1px solid #e5e7eb;
-
-        box-shadow:0 12px 25px rgba(0,0,0,.08);
+    /* show the hamburger icon */
+    .menu-btn {
+        display: block;
     }
 
-    .nav-links.active{
-
-        display:flex;
+    /* dropdown panel, hidden until "active" */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        box-shadow: 0 12px 24px rgba(15, 23, 41, 0.1);
+        transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
     }
 
-    .mobile-buttons{
-
-        display:flex;
-
-        flex-direction:column;
-
-        gap:16px;
-
-        width:80%;
+    .nav-links.active {
+        max-height: 500px;
+        opacity: 1;
+        padding: 16px 20px 24px;
     }
 
-    .mobile-buttons button{
-
-        width:80%;
+    .nav-links a {
+        padding: 14px 0;
+        border-bottom: 1px solid #f0f1f5;
+        text-align: center;
+        font-size: 1.05rem;
     }
 
+    /* buttons inside the dropdown */
+    .mobile-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 16px;
+    }
+
+    .mobile-buttons a {
+        border-bottom: none;
+        padding: 0;
+    }
+
+    .mobile-buttons .login-btn,
+    .mobile-buttons .register-btn {
+        width: 100%;
+        padding: 12px 0;
+        text-align: center;
+    }
 }
 
-/* ==========================================
-   MOBILE
-========================================== */
-@media (max-width:600px){
-
-    .mobile-buttons .login-btn{
-        border: none;
-        background: #2563eb;
-        color: #fff;
+@media (max-width: 420px) {
+    .logo h2 {
+        font-size: 1.35rem;
     }
-
-    .mobile-buttons .register-btn{
-        border: none;
-    }
-
-}
-/* ==========================================
-   SMALL PHONES
-========================================== */
-
-@media (max-width:400px){
-
-    .logo h2{
-
-        font-size:1.4rem;
-    }
-
-    .login-btn,
-    .register-btn{
-
-        height:44px;
-
-        font-size:.9rem;
-    }
-
 }

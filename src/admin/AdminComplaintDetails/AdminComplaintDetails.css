@@ -1,317 +1,182 @@
-/* ==========================================
-   PAGE
-========================================== */
+* {
+    box-sizing: border-box;
+}
 
 .admin-details-page {
     min-height: 100vh;
-    background: #f6f8fc;
-    padding: 40px 20px;
-
+    width: 100%;
+    background: linear-gradient(180deg, #eef3fc 0%, #ffffff 100%);
+    padding: 30px 20px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* ==========================================
-   BACK BUTTON
-========================================== */
-
-.back-btn {
-    align-self: flex-start;
-
-    margin-bottom: 24px;
-
-    padding: 12px 24px;
-
-    border: none;
-    border-radius: 12px;
-
-    background: #2563eb;
-    color: #fff;
-
-    font-size: .95rem;
+.admin-details-page > .back-btn {
+    width: 100%;
+    max-width: 720px;
+    background: none;
+    border: 2px solid #e5e7eb;
+    color: #1f2937;
+    font-size: 0.9rem;
     font-weight: 600;
-
+    padding: 9px 18px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: .3s;
+    margin-bottom: 16px;
+    text-align: left;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.back-btn:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
+.admin-details-page > .back-btn:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
 }
-
-/* ==========================================
-   CARD
-========================================== */
 
 .details-card {
     width: 100%;
-    max-width: 850px;
-
+    max-width: 720px;
     background: #fff;
-
-    border-radius: 22px;
-
-    padding: 36px;
-
-    box-shadow: 0 10px 30px rgba(15,23,42,.08);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(15, 23, 41, 0.08);
+    padding: 40px;
 }
-
-/* ==========================================
-   TITLE
-========================================== */
 
 .details-card h1 {
-    margin: 0;
-    margin-bottom: 16px;
-
-    font-size: 2rem;
-    font-weight: 700;
-
-    color: #0f172a;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f1729;
+    margin: 0 0 8px;
 }
 
-/* ==========================================
-   BADGES
-========================================== */
+.details-card .category {
+    display: inline-block;
+    background: #eef3fc;
+    color: #2b5cf0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 30px;
+    margin: 0 0 14px;
+    text-transform: capitalize;
+}
 
-.category,
 .status-badge {
     display: inline-block;
-
-    padding: 8px 18px;
-
-    border-radius: 999px;
-
-    font-size: .9rem;
-    font-weight: 600;
-
-    margin-right: 10px;
-    margin-bottom: 18px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 30px;
+    background: #fef1cf;
+    color: #b8860b;
+    text-transform: capitalize;
+    margin-bottom: 24px;
 }
 
-.category {
-    background: #dbeafe;
-    color: #2563eb;
-}
-
-.status-badge {
-    background: #fff3cd;
-    color: #b45309;
-}
-
-/* ==========================================
-   CONTENT
-========================================== */
-
-.details-card h2,
 .details-card h3 {
-    margin-top: 30px;
-    margin-bottom: 14px;
-
-    color: #0f172a;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 8px;
 }
 
-.details-card p {
-    color: #475569;
-    line-height: 1.7;
+.details-card > p {
+    font-size: 0.95rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 20px;
 }
-
-/* ==========================================
-   IMAGE
-========================================== */
 
 .complaint-image {
     width: 100%;
-    max-height: 420px;
-
-    object-fit: cover;
-
-    border-radius: 16px;
-
-    margin-top: 18px;
-
-    border: 1px solid #e2e8f0;
-}
-
-/* ==========================================
-   FORM
-========================================== */
-
-label {
+    max-width: 320px;
+    border-radius: 12px;
     display: block;
-
-    margin-top: 22px;
-    margin-bottom: 8px;
-
-    font-weight: 600;
-
-    color: #334155;
+    margin-bottom: 20px;
 }
-
-select,
-textarea {
-    width: 100%;
-
-    padding: 14px 16px;
-
-    border: 1px solid #dbe2ea;
-
-    border-radius: 12px;
-
-    font-size: .95rem;
-
-    outline: none;
-
-    transition: .3s;
-}
-
-select:focus,
-textarea:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37,99,235,.12);
-}
-
-textarea {
-    resize: vertical;
-    min-height: 140px;
-}
-
-/* ==========================================
-   UPDATE BUTTON
-========================================== */
-
-.update-btn {
-    width: 100%;
-
-    margin-top: 26px;
-
-    padding: 14px;
-
-    border: none;
-
-    border-radius: 12px;
-
-    background: #2563eb;
-
-    color: white;
-
-    font-size: 1rem;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: .3s;
-}
-
-.update-btn:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
-}
-
-/* ==========================================
-   FEEDBACK
-========================================== */
-
-.feedback-box {
-    margin-top: 18px;
-
-    padding: 20px;
-
-    background: #f8fafc;
-
-    border-left: 5px solid #2563eb;
-
-    border-radius: 12px;
-}
-
-.feedback-box p {
-    margin: 0;
-}
-
-/* ==========================================
-   DIVIDER
-========================================== */
 
 .details-card hr {
     border: none;
-    border-top: 1px solid #e5e7eb;
-    margin: 34px 0;
+    border-top: 1px solid #f0f1f5;
+    margin: 28px 0;
 }
 
-/* ==========================================
-   TABLET
-========================================== */
-
-@media (max-width:768px){
-
-    .admin-details-page{
-        padding:24px 16px;
-    }
-
-    .details-card{
-        padding:24px;
-    }
-
-    .details-card h1{
-        font-size:1.7rem;
-    }
-
-    .back-btn{
-        width:100%;
-        margin-bottom:20px;
-    }
-
+.details-card h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f1729;
+    margin: 0 0 18px;
 }
 
-/* ==========================================
-   MOBILE
-========================================== */
+.details-card label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 6px;
+}
 
-@media (max-width:480px){
+.details-card select,
+.details-card textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    outline: none;
+    font-family: inherit;
+    resize: vertical;
+    background: #fff;
+    margin-bottom: 18px;
+    transition: border-color 0.2s ease;
+}
 
-    .admin-details-page{
-        padding:16px 12px;
+.details-card select:focus,
+.details-card textarea:focus {
+    border-color: #2b5cf0;
+}
+
+.update-btn {
+    width: 100%;
+    background: #2b5cf0;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 13px 0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.update-btn:hover {
+    background: #1e46c9;
+}
+
+.feedback-box {
+    background: #eef3fc;
+    border-radius: 12px;
+    padding: 18px 20px;
+}
+
+.feedback-box p {
+    font-size: 0.95rem;
+    color: #1f2937;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==================================================== */
+/* RESPONSIVE                                            */
+/* ==================================================== */
+@media (max-width: 600px) {
+    .details-card {
+        padding: 28px 22px;
+        border-radius: 16px;
     }
 
-    .details-card{
-        padding:20px;
-        border-radius:18px;
+    .details-card h1 {
+        font-size: 1.3rem;
     }
-
-    .details-card h1{
-        font-size:1.45rem;
-        text-align:center;
-    }
-
-    .category,
-    .status-badge{
-        font-size:.8rem;
-        padding:7px 14px;
-    }
-
-    .details-card h2{
-        font-size:1.3rem;
-    }
-
-    .details-card h3{
-        font-size:1.1rem;
-    }
-
-    select,
-    textarea{
-        font-size:.9rem;
-        padding:12px;
-    }
-
-    .update-btn{
-        padding:13px;
-        font-size:.95rem;
-    }
-
-    .complaint-image{
-        max-height:240px;
-    }
-
 }

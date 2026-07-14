@@ -1,304 +1,110 @@
-/* ==========================================
-   COMPLAINT PREVIEW
-========================================== */
-
-.complaint-preview{
-    width:min(1400px,95%);
-    margin:35px auto;
-
-    background:#ffffff;
-
-    border-radius:22px;
-
-    padding:32px;
-
-    box-shadow:0 10px 30px rgba(15,23,42,.06);
-
-    display:flex;
-    flex-direction:column;
-
-    gap:30px;
+* {
+    box-sizing: border-box;
 }
 
-/* ==========================================
-   HEADER
-========================================== */
-
-.preview-header{
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    gap:20px;
+.complaint-preview {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
 }
 
-.preview-header h2{
-
-    margin:0;
-
-    font-size:2rem;
-
-    color:#0f172a;
-
-    font-weight:700;
+.preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
 }
 
-.preview-header p{
-
-    margin-top:8px;
-
-    color:#64748b;
-
-    font-size:1rem;
+.preview-header h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0f1729;
+    margin: 0 0 6px;
 }
 
-/* ==========================================
-   NEW COMPLAINT BUTTON
-========================================== */
-
-.new-complaint-btn{
-
-    width:190px;
-
-    height:48px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#2563eb;
-
-    color:#fff;
-
-    font-size:.95rem;
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s;
+.preview-header p {
+    font-size: 0.92rem;
+    color: #6b7280;
+    margin: 0;
 }
 
-.new-complaint-btn:hover{
-
-    background:#1d4ed8;
-
-    transform:translateY(-2px);
-
-    box-shadow:0 10px 20px rgba(37,99,235,.20);
+.new-complaint-btn {
+    background: #2b5cf0;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease;
 }
 
-/* ==========================================
-   GRID
-========================================== */
-
-.complaint-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
-
-    gap:24px;
+.new-complaint-btn:hover {
+    background: #1e46c9;
 }
 
-/* ==========================================
-   EMPTY / LOADING
-========================================== */
-
-.complaint-preview>p{
-
-    text-align:center;
-
-    color:#64748b;
-
-    font-size:1rem;
-
-    padding:30px 0;
+.complaint-preview > p {
+    font-size: 0.95rem;
+    color: #6b7280;
+    text-align: center;
+    padding: 30px 0;
 }
 
-/* ==========================================
-   VIEW ALL
-========================================== */
-
-.view-all{
-
-    display:flex;
-    justify-content:center;
+.complaint-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
 }
 
-.view-all button{
-
-    width:260px;
-
-    height:50px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#2563eb;
-
-    color:#fff;
-
-    font-size:1rem;
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s;
+.view-all {
+    text-align: center;
+    margin-top: 26px;
 }
 
-.view-all button:hover{
-
-    background:#1d4ed8;
-
-    transform:translateY(-2px);
-
-    box-shadow:0 10px 20px rgba(37,99,235,.20);
+.view-all button {
+    background: none;
+    border: none;
+    outline: none;
+    color: #2b5cf0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-/* ==========================================
-   TABLET
-========================================== */
+.view-all button:hover {
+    text-decoration: underline;
+}
 
-@media(max-width:992px){
+/* ==================================================== */
+/* RESPONSIVE                                            */
+/* ==================================================== */
+@media (max-width: 900px) {
+    .complaint-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-    .complaint-preview{
-
-        padding:28px;
+@media (max-width: 600px) {
+    .complaint-preview {
+        padding: 24px 16px;
     }
 
-    .preview-header{
-
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .new-complaint-btn{
-
-        width:180px;
-    }
-
-}
-
-/* ==========================================
-   MOBILE
-========================================== */
-
-@media(max-width:768px){
-
-    .complaint-preview{
-
-        width:94%;
-
-        padding:22px;
-    }
-
-    .preview-header{
-
-        align-items:center;
-        text-align:center;
-    }
-
-    .preview-header h2{
-
-        font-size:1.7rem;
-    }
-
-    .preview-header p{
-
-        font-size:.95rem;
-    }
-
-    .new-complaint-btn{
-
-        width:220px;
-    }
-
-    .complaint-grid{
-
-        grid-template-columns:1fr;
-    }
-
-    .view-all button{
-
-        width:220px;
-    }
-
-}
-
-/* ==========================================
-   SMALL MOBILE
-========================================== */
-
-@media(max-width:480px){
-
-    .complaint-preview{
-
-        padding:18px;
-    }
-
-    .preview-header h2{
-
-        font-size:1.5rem;
-    }
-
-    .new-complaint-btn,
-    .view-all button{
-
-        width:100%;
-        max-width:240px;
-    }
-
-}
-
-/* ==========================
-   MOBILE
-========================== */
-
-@media (max-width: 768px) {
-
-    .preview-header{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+    .preview-header {
+        flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
     }
 
-    .preview-header > div{
-        flex: 1;
+    .new-complaint-btn {
+        width: 100%;
+        text-align: center;
     }
 
-    .preview-header h2{
-        font-size: 1.5rem;
+    .complaint-grid {
+        grid-template-columns: 1fr;
     }
-
-    .preview-header p{
-        font-size: 0.9rem;
-        margin-top: 4px;
-    }
-
-    .new-complaint-btn{
-        width: auto;
-        min-width: 140px;
-        padding: 12px 18px;
-        white-space: nowrap;
-        flex-shrink: 0;
-    }
-
-}
-
-@media (max-width:480px){
-
-    .preview-header{
-        align-items: center;
-    }
-
-    .new-complaint-btn{
-        min-width: 125px;
-        padding: 10px 14px;
-        font-size: 0.85rem;
-    }
-
 }
