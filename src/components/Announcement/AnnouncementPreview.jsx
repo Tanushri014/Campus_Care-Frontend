@@ -29,19 +29,15 @@ function AnnouncementPreview({ onViewAll, hideViewAll = false }) {
 
     };
 
-  const handleDownload = (announcement) => {
-
+ const handleDownload = (announcement) => {
     if (!announcement.fileUrl) return;
 
-    const link = document.createElement("a");
+    const downloadUrl = announcement.fileUrl.replace(
+        "/upload/",
+        "/upload/fl_attachment/"
+    );
 
-    link.href = announcement.fileUrl;
-    link.download = `${announcement.title}.pdf`;
-
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
+    window.open(downloadUrl, "_blank");
 };
     return (
 
