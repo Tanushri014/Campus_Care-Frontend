@@ -124,7 +124,24 @@
 .lostfound-footer button:hover {
     background: #eef3fc;
 }
+.card-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
 
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #b02a37;
+}
 /* ==================================================== */
 /* RESPONSIVE                                            */
 /* ==================================================== */

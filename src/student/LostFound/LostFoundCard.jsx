@@ -1,29 +1,33 @@
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+
 import "./LostFoundCard.css";
 
-function LostFoundCard({ item, onView }) {
+function LostFoundCard({ item, onView, onDelete }) {
+    const { user } = useContext(AuthContext);
 
     const formattedDate = item.createdAt
         ? new Date(item.createdAt).toLocaleDateString()
         : "N/A";
 
-    return (
+    const isOwner =
+        user?.id &&
+        item.studentId &&
+        user.id === item.studentId;
 
+    return (
         <div className="lostfound-card">
 
             {item.imageUrl ? (
-
                 <img
                     src={item.imageUrl}
                     alt={item.title || "Lost & Found Item"}
                     className="lostfound-image"
                 />
-
             ) : (
-
                 <div className="lostfound-image-placeholder">
                     No Image
                 </div>
-
             )}
 
             <div className="lostfound-content">
@@ -43,7 +47,7 @@ function LostFoundCard({ item, onView }) {
                 </div>
 
                 <h3>
-                   Item : {item.title || "Untitled Item"}
+                    Item : {item.title || "Untitled Item"}
                 </h3>
 
                 <p>
@@ -57,20 +61,29 @@ function LostFoundCard({ item, onView }) {
                         {`${item.firstName || ""} ${item.lastName || ""}`.trim() || "Unknown"}
                     </span>
 
-                    <button
-                        onClick={() => onView(item.id)}
-                    >
-                        View Details
-                    </button>
+                    <div className="card-actions">
+
+                        <button onClick={() => onView(item.id)}>
+                            View Details
+                        </button>
+
+                        {isOwner && (
+                            <button
+                                className="delete-btn"
+                                onClick={() => onDelete(item.id)}
+                            >
+                                Delete
+                            </button>
+                        )}
+
+                    </div>
 
                 </div>
 
             </div>
 
         </div>
-
     );
-
 }
 
 export default LostFoundCard;

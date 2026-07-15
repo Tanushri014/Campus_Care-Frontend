@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import LostFoundCard from "./LostFoundCard";
-import { getAllLostFoundItems } from "../../api/lostFoundApi";
+import {
+    getAllLostFoundItems,
+    deleteLostFound
+} from "../../api/lostFoundApi";
 
 import "./LostFoundList.css";
 
@@ -29,6 +32,7 @@ function LostFoundList() {
 
             setItems(data.content);
             setTotalPages(data.totalPages);
+
         } catch (err) {
             setError(
                 err.response?.data?.message ||
@@ -36,6 +40,28 @@ function LostFoundList() {
             );
         } finally {
             setLoading(false);
+        }
+    };
+
+    const handleDelete = async (id) => {
+
+        const confirmed = window.confirm(
+            "Are you sure you want to delete this item?"
+        );
+
+        if (!confirmed) return;
+
+        try {
+
+            await deleteLostFound(id);
+
+            fetchItems(currentPage);
+
+        } catch (err) {
+            alert(
+                err.response?.data?.message ||
+                "Unable to delete item."
+            );
         }
     };
 
@@ -50,111 +76,112 @@ function LostFoundList() {
     if (error) {
         return (
             <div className="lostfound-list-page">
-           <div className="back-btn-wrapper">     <button
+
+                <div className="back-btn-wrapper">
+                    <button
+                        className="back-btn"
+                        onClick={() => navigate("/student/dashboard")}
+                    >
+                        ← Back to Dashboard
+                    </button>
+                </div>
+
+                <h2>{error}</h2>
+
+            </div>
+        );
+    }
+
+    return (
+        <div className="lostfound-list-page">
+
+            <div className="back-btn-wrapper">
+                <button
                     className="back-btn"
                     onClick={() => navigate("/student/dashboard")}
                 >
                     ← Back to Dashboard
                 </button>
-</div>
-                <h2>{error}</h2>
-            </div>
-        );
-    }
-
-return (
-    <div className="lostfound-list-page">
-
-        {/* Back Button */}
-        <div className="back-btn-wrapper">
-            <button
-                className="back-btn"
-                onClick={() => navigate("/student/dashboard")}
-            >
-                ← Back to Dashboard
-            </button>
-        </div>
-
-        {/* Header */}
-        <div className="lostfound-list-header">
-
-            <div className="header-content">
-                <h1>Lost & Found</h1>
-                <p>
-                    Browse all reported lost and found items.
-                </p>
             </div>
 
-            <button
-                className="add-btn"
-                onClick={() => navigate("/student/lost-found/new")}
-            >
-                + Add Item
-            </button>
+            <div className="lostfound-list-header">
 
-        </div>
-
-        {/* Cards */}
-        <div className="lostfound-list-grid">
-
-            {items.length === 0 ? (
-                <div className="empty-state">
-                    <h3>No items found.</h3>
+                <div className="header-content">
+                    <h1>Lost & Found</h1>
                     <p>
-                        No Lost & Found items have been reported yet.
+                        Browse all reported lost and found items.
                     </p>
                 </div>
-            ) : (
-                items.map((item) => (
-                    <LostFoundCard
-                        key={item.id}
-                        item={item}
-                        onView={() =>
-                            navigate(`/student/lost-found/${item.id}`)
-                        }
-                    />
-                ))
+
+                <button
+                    className="add-btn"
+                    onClick={() => navigate("/student/lost-found/new")}
+                >
+                    + Add Item
+                </button>
+
+            </div>
+
+            <div className="lostfound-list-grid">
+
+                {items.length === 0 ? (
+                    <div className="empty-state">
+                        <h3>No items found.</h3>
+                        <p>
+                            No Lost & Found items have been reported yet.
+                        </p>
+                    </div>
+                ) : (
+                    items.map((item) => (
+                        <LostFoundCard
+                            key={item.id}
+                            item={item}
+                            onView={() =>
+                                navigate(`/student/lost-found/${item.id}`)
+                            }
+                            onDelete={handleDelete}
+                        />
+                    ))
+                )}
+
+            </div>
+
+            {totalPages > 1 && (
+                <div className="pagination">
+
+                    <button
+                        onClick={() => setCurrentPage(currentPage - 1)}
+                        disabled={currentPage === 0}
+                    >
+                        Previous
+                    </button>
+
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <button
+                            key={index}
+                            className={
+                                currentPage === index
+                                    ? "active-page"
+                                    : ""
+                            }
+                            onClick={() => setCurrentPage(index)}
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
+
+                    <button
+                        onClick={() => setCurrentPage(currentPage + 1)}
+                        disabled={currentPage === totalPages - 1}
+                    >
+                        Next
+                    </button>
+
+                </div>
             )}
 
         </div>
-
-        {/* Pagination */}
-        {totalPages > 1 && (
-            <div className="pagination">
-
-                <button
-                    onClick={() => setCurrentPage(currentPage - 1)}
-                    disabled={currentPage === 0}
-                >
-                    Previous
-                </button>
-
-                {Array.from({ length: totalPages }, (_, index) => (
-                    <button
-                        key={index}
-                        className={
-                            currentPage === index
-                                ? "active-page"
-                                : ""
-                        }
-                        onClick={() => setCurrentPage(index)}
-                    >
-                        {index + 1}
-                    </button>
-                ))}
-
-                <button
-                    onClick={() => setCurrentPage(currentPage + 1)}
-                    disabled={currentPage === totalPages - 1}
-                >
-                    Next
-                </button>
-
-            </div>
-        )}
-
-    </div>
-);
+    );
 }
 
 export default LostFoundList;
