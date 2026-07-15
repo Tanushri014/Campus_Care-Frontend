@@ -3,16 +3,21 @@ import { AuthContext } from "../../context/AuthContext";
 
 import "./LostFoundCard.css";
 
-function LostFoundCard({ item, onView, onDelete }) {
+function LostFoundCard({ item, onView }) {
 
     const { user } = useContext(AuthContext);
-
+console.log("User:", user);
+console.log("user.id:", user?.id);
+console.log("item.studentId:", item.studentId);
+console.log(
+    "isOwner:",
+    Number(user?.id) === Number(item.studentId)
+);
     const formattedDate = item.createdAt
         ? new Date(item.createdAt).toLocaleDateString()
         : "N/A";
 
-    const isOwner =
-        Number(user?.id) === Number(item.studentId);
+   
 
     return (
         <div className="lostfound-card">
@@ -60,22 +65,11 @@ function LostFoundCard({ item, onView, onDelete }) {
                         {`${item.firstName || ""} ${item.lastName || ""}`.trim() || "Unknown"}
                     </span>
 
-                    <div className="card-actions">
-
-                        <button onClick={() => onView(item.id)}>
-                            View Details
-                        </button>
-
-                        {isOwner && (
-                            <button
-                                className="delete-btn"
-                                onClick={() => onDelete(item.id)}
-                            >
-                                Delete
-                            </button>
-                        )}
-
-                    </div>
+                  <div className="card-actions">
+    <button onClick={() => onView(item.id)}>
+        View Details
+    </button>
+</div>
 
                 </div>
 
