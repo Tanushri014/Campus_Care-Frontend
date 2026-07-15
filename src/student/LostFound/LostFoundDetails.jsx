@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { getLostFoundById } from "../../api/lostFoundApi";
 import { useContext } from "react";
-
+import { useAuth } from "../../context/AuthContext";
 import { deleteLostFound } from "../../api/lostFoundApi";
 function LostFoundDetails() {
 const { user } = useAuth();

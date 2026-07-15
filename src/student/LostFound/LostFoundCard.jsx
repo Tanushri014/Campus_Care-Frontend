@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-
+import { useAuth } from "../../context/AuthContext";
 import "./LostFoundCard.css";
 
 function LostFoundCard({ item, onView }) {
