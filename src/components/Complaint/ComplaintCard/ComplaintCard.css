@@ -116,7 +116,14 @@
 .view-btn:hover {
     background: #eef3fc;
 }
-
+.complaint-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 16px 0;
+    display: block;
+}
 /* ==================================================== */
 /* RESPONSIVE                                            */
 /* ==================================================== */

@@ -39,22 +39,20 @@ function AnnouncementList() {
 
     };
 
-    const handleDownload = (announcement) => {
+  const handleDownload = (announcement) => {
 
-        if (announcement.fileUrl) {
+    if (!announcement.fileUrl) return;
 
-            window.open(
+    const link = document.createElement("a");
 
-                `http://localhost:8080${announcement.fileUrl}`,
+    link.href = announcement.fileUrl;
+    link.download = `${announcement.title}.pdf`;
 
-                "_blank"
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 
-            );
-
-        }
-
-    };
-
+};
     return (
 
         <>

@@ -23,6 +23,13 @@ function ComplaintCard({ complaint, onView }) {
                 </span>
 
             </div>
+ {complaint.imageUrl && (
+        <img
+            src={complaint.imageUrl}
+            alt={complaint.title}
+            className="complaint-image"
+        />
+    )}
 
             <h3 className="complaint-title">
               Issue :  {complaint.title || "Untitled Complaint"}
