@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/AuthContext";
 import "./LostFoundCard.css";
 
 function LostFoundCard({ item, onView, onDelete }) {
+
     const { user } = useContext(AuthContext);
 
     const formattedDate = item.createdAt
@@ -11,9 +12,7 @@ function LostFoundCard({ item, onView, onDelete }) {
         : "N/A";
 
     const isOwner =
-        user?.id &&
-        item.studentId &&
-        user.id === item.studentId;
+        Number(user?.id) === Number(item.studentId);
 
     return (
         <div className="lostfound-card">
