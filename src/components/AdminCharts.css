@@ -2,46 +2,136 @@
     box-sizing: border-box;
 }
 
+/* ==========================================
+   CHART SECTION
+========================================== */
+
 .admin-charts {
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 32px 24px 40px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 28px;
 }
+
+/* ==========================================
+   CHART CARD
+========================================== */
 
 .chart-card {
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(15, 23, 41, 0.06);
+    background: #ffffff;
+    border-radius: 20px;
     padding: 24px;
+    border: 1px solid #edf2f7;
+    box-shadow:
+        0 6px 18px rgba(15, 23, 42, 0.06),
+        0 2px 6px rgba(15, 23, 42, 0.04);
+    transition: transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
+
+.chart-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 14px 32px rgba(15, 23, 42, 0.12),
+        0 4px 10px rgba(15, 23, 42, 0.06);
+}
+
+/* ==========================================
+   TITLE
+========================================== */
 
 .chart-title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #0f1729;
-    margin: 0 0 18px;
+    margin: 0 0 22px;
     text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    letter-spacing: 0.3px;
 }
 
-/* ==================================================== */
-/* RESPONSIVE                                            */
-/* ==================================================== */
-@media (max-width: 900px) {
+/* ==========================================
+   RECHARTS
+========================================== */
+
+.recharts-wrapper {
+    font-size: 0.9rem;
+}
+
+.recharts-legend-item-text {
+    color: #334155 !important;
+    font-weight: 500;
+}
+
+.recharts-tooltip-wrapper {
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media (max-width: 992px) {
+
     .admin-charts {
         grid-template-columns: 1fr;
-        padding: 24px 16px;
+        gap: 24px;
+        padding: 24px 18px 32px;
     }
+
+    .chart-card {
+        padding: 22px;
+    }
+
 }
 
-@media (max-width: 480px) {
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .admin-charts {
+        padding: 18px 14px 28px;
+        gap: 20px;
+        grid-template-columns: 1fr;
+    }
+
     .chart-card {
-        padding: 18px 14px;
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .chart-title {
+        font-size: 1rem;
+        margin-bottom: 16px;
+    }
+
+}
+
+/* ==========================================
+   SMALL PHONES
+========================================== */
+
+@media (max-width: 480px) {
+
+    .admin-charts {
+        padding: 12px;
+    }
+
+    .chart-card {
+        padding: 14px;
+        border-radius: 14px;
     }
 
     .chart-title {
         font-size: 0.95rem;
     }
+
+    .recharts-wrapper {
+        font-size: 0.8rem;
+    }
+
 }
