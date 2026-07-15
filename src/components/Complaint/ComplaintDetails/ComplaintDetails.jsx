@@ -153,7 +153,7 @@ function ComplaintDetails() {
                         <label>Reference Image</label>
 
                         <img
-                            src={`http://localhost:8080/${complaint.imagePath}`}
+                            src={complaint.imagePath}
                             alt="Complaint"
                         />
 
