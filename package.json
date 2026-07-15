@@ -1,4 +1,7 @@
 {
+
+
+  
   "name": "campuscare-frontend-new",
   "private": true,
   "version": "0.0.0",
@@ -17,6 +20,13 @@
     "react-router-dom": "^7.18.1",
     "recharts": "^3.9.2"
   },
+
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/react": "^19.2.17",
@@ -29,3 +39,5 @@
     "vite": "^8.1.1"
   }
 }
+
+  
