@@ -62,7 +62,7 @@ function LostFoundDetails() {
                 {item.imageUrl && (
 
                     <img
-                        src={`http://localhost:8080${item.imageUrl}`}
+                        src={item.imageUrl}
                         alt={item.title}
                         className="details-image"
                     />

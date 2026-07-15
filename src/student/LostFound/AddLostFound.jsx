@@ -8,7 +8,7 @@ import { createLostFound } from "../../api/lostFoundApi";
 function AddLostFound() {
 
     const navigate = useNavigate();
-
+const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
 
         title: "",
@@ -74,6 +74,7 @@ function AddLostFound() {
    const handleSubmit = async (e) => {
 
     e.preventDefault();
+     setLoading(true);
 
     try {
 
@@ -104,6 +105,11 @@ function AddLostFound() {
         console.error(error);
 
         alert("Failed to submit item.");
+
+    }
+    finally {
+
+        setLoading(false);
 
     }
 
@@ -204,14 +210,13 @@ function AddLostFound() {
 
                     </div>
 
-                    <button
-                        type="submit"
-                        className="submit-btn"
-                    >
-
-                        Submit Item
-
-                    </button>
+                   <button
+    type="submit"
+    className="submit-btn"
+    disabled={loading}
+>
+    {loading ? "Submitting..." : "Submit Item"}
+</button>
 
                 </form>
 
