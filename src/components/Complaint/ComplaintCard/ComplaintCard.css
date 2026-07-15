@@ -124,6 +124,30 @@
     margin: 16px 0;
     display: block;
 }
+.complaint-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.delete-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #dc2626;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+}
+
+.delete-btn:active {
+    transform: scale(0.97);
+}
 /* ==================================================== */
 /* RESPONSIVE                                            */
 /* ==================================================== */

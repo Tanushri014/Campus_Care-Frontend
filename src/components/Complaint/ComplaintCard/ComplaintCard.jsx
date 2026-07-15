@@ -1,6 +1,6 @@
 import "./ComplaintCard.css";
 
-function ComplaintCard({ complaint, onView }) {
+function ComplaintCard({ complaint, onView, onDelete }) {
 
     const formattedDate = complaint.createdAt
         ? new Date(complaint.createdAt).toLocaleDateString()
@@ -23,38 +23,53 @@ function ComplaintCard({ complaint, onView }) {
                 </span>
 
             </div>
- {complaint.imageUrl && (
-        <img
-            src={complaint.imageUrl}
-            alt={complaint.title}
-            className="complaint-image"
-        />
-    )}
+
+            {complaint.imageUrl && (
+                <img
+                    src={complaint.imageUrl}
+                    alt={complaint.title}
+                    className="complaint-image"
+                />
+            )}
 
             <h3 className="complaint-title">
-              Issue :  {complaint.title || "Untitled Complaint"}
+                Issue : {complaint.title || "Untitled Complaint"}
             </h3>
 
             <p className="complaint-description">
-                Desription : {complaint.description || "No description provided."}
+                Description : {complaint.description || "No description provided."}
             </p>
 
             <div className="complaint-footer">
 
                 <span>{formattedDate}</span>
 
-                <button
-                    className="view-btn"
-                    onClick={() => onView(complaint.id)}
-                >
-                    View Details
-                </button>
+                <div className="complaint-actions">
+
+                    {onDelete && (
+                        <button
+                            className="delete-btn"
+                            onClick={() => onDelete(complaint.id)}
+                        >
+                            Delete
+                        </button>
+                    )}
+
+                    <button
+                        className="view-btn"
+                        onClick={() => onView(complaint.id)}
+                    >
+                        View Details
+                    </button>
+
+                </div>
 
             </div>
 
         </div>
 
     );
+
 }
 
 export default ComplaintCard;

@@ -183,7 +183,7 @@ function AdminComplaintDetails() {
 
                             className="complaint-image"
 
-                            src={`http://localhost:8080/${complaint.imagePath}`}
+                            src={complaint.imagePath}
 
                             alt="Complaint"
 
