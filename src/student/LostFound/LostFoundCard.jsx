@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
+
 
 import "./LostFoundCard.css";
 
 function LostFoundCard({ item, onView }) {
 
-    const { user } = useContext(AuthContext);
+ const { user } = useAuth();
 console.log("User:", user);
 console.log("user.id:", user?.id);
 console.log("item.studentId:", item.studentId);

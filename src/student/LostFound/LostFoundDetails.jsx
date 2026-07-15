@@ -6,10 +6,10 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import { getLostFoundById } from "../../api/lostFoundApi";
 import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
+
 import { deleteLostFound } from "../../api/lostFoundApi";
 function LostFoundDetails() {
-const { user } = useContext(AuthContext);
+const { user } = useAuth();
 
 
     const navigate = useNavigate();
