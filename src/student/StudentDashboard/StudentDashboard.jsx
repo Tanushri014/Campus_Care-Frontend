@@ -83,7 +83,7 @@ function StudentDashboard() {
 
             <div className="desktop-dashboard">
 
-                <StudentProfile stats={stats} />
+                <StudentProfile stats={stats} showStats={true} layout="dashboard" />
 
                 <ComplaintPreview />
 

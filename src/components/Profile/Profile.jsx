@@ -2,38 +2,48 @@ import "./Profile.css";
 import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../context/AuthContext";
-
 import { logout } from "../../api/authApi";
-function Profile({ user, role }) {
-const navigate = useNavigate();
 
-const { setUser } = useAuth();
-const handleLogout = async () => {
+function Profile({
+    user,
+    role,
+    showStats = true,
+    layout = "dashboard"
+}) {
 
-    try {
+    const navigate = useNavigate();
 
-        await logout();
+    const { setUser } = useAuth();
 
-    }
+    const handleLogout = async () => {
 
-    catch (err) {
+        try {
 
-        console.error(err);
+            await logout();
 
-    }
+        }
 
-    finally {
+        catch (err) {
 
-        setUser(null);
+            console.error(err);
 
-        navigate("/login");
+        }
 
-    }
+        finally {
 
-};
+            setUser(null);
+
+            navigate("/login");
+
+        }
+
+    };
+
     return (
 
-        <section className="student-profile">
+        <section
+            className={`student-profile ${layout === "profile" ? "profile-page-layout" : ""}`}
+        >
 
             <div className="profile-left">
 
@@ -43,9 +53,11 @@ const handleLogout = async () => {
 
                 <div className="profile-info">
 
-                    <h2>
-                        Welcome back, {user.firstName || "Student"} 👋
-                    </h2>
+                    {layout === "dashboard" && (
+                        <h2>
+                            Welcome back, {user.firstName || "Student"} 👋
+                        </h2>
+                    )}
 
                     <h3>
                         {user.firstName} {user.lastName}
@@ -80,9 +92,11 @@ const handleLogout = async () => {
                     )}
 
                     {role === "admin" && (
+
                         <p>
                             Department : {user.department}
                         </p>
+
                     )}
 
                 </div>
@@ -91,38 +105,55 @@ const handleLogout = async () => {
 
             <div className="profile-right">
 
-    <div className="stats-grid">
+                {showStats && (
 
-        <div className="stat-card">
-            <h3>{user.stats?.total ?? 0}</h3>
-            <p>Complaints</p>
-        </div>
+                    <div className="stats-grid">
 
-        <div className="stat-card">
-            <h3>{user.stats?.resolved ?? 0}</h3>
-            <p>Resolved</p>
-        </div>
+                        <div className="stat-card">
 
-        <div className="stat-card">
-            <h3>{user.stats?.pending ?? 0}</h3>
-            <p>Pending</p>
-        </div>
+                            <h3>{user.stats?.total ?? 0}</h3>
 
-    </div>
+                            <p>Complaints</p>
 
-    <div className="logout-wrapper">
-        <button
-            className="logout-btn"
-            onClick={handleLogout}
-        >
-            Logout
-        </button>
-    </div>
+                        </div>
 
-</div>
+                        <div className="stat-card">
+
+                            <h3>{user.stats?.resolved ?? 0}</h3>
+
+                            <p>Resolved</p>
+
+                        </div>
+
+                        <div className="stat-card">
+
+                            <h3>{user.stats?.pending ?? 0}</h3>
+
+                            <p>Pending</p>
+
+                        </div>
+
+                    </div>
+
+                )}
+
+                <div className="logout-wrapper">
+
+                    <button
+                        className="logout-btn"
+                        onClick={handleLogout}
+                    >
+                        Logout
+                    </button>
+
+                </div>
+
+            </div>
+
         </section>
 
     );
+
 }
 
 export default Profile;

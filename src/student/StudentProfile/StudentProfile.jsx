@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 
 import Profile from "../../components/Profile/Profile";
-
 import { getStudentProfile } from "../../api/studentApi";
 
-function StudentProfile({ stats }) {
+function StudentProfile({
+    stats,
+    showStats = true,
+    layout = "dashboard"
+}) {
 
     const [student, setStudent] = useState(null);
-
     const [loading, setLoading] = useState(true);
-
     const [error, setError] = useState("");
 
     useEffect(() => {
@@ -31,11 +32,8 @@ function StudentProfile({ stats }) {
         catch (err) {
 
             setError(
-
                 err.response?.data?.message ||
-
                 "Unable to load profile."
-
             );
 
         }
@@ -48,23 +46,11 @@ function StudentProfile({ stats }) {
 
     };
 
-    if (loading) {
+    if (loading) return <p>Loading profile...</p>;
 
-        return <p>Loading profile...</p>;
+    if (error) return <p>{error}</p>;
 
-    }
-
-    if (error) {
-
-        return <p>{error}</p>;
-
-    }
-
-    if (!student) {
-
-        return null;
-
-    }
+    if (!student) return null;
 
     return (
 
@@ -73,22 +59,18 @@ function StudentProfile({ stats }) {
             user={{
 
                 firstName: student.firstName,
-
                 lastName: student.lastName,
-
                 email: student.studentEmail,
-
                 collegeId: student.collegeId,
-
                 emailVerified: student.emailVerified,
-
                 collegeVerified: student.collegeVerified,
-
-                stats,
+                stats
 
             }}
 
             role="student"
+            showStats={showStats}
+            layout={layout}
 
         />
 

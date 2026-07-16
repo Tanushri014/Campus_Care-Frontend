@@ -103,7 +103,7 @@ function App() {
 
     <Route
         path="/student/profile"
-        element={<StudentProfile />}
+        element={<StudentProfile showStats={false} layout="profile"/>}
     />
 
     <Route
