@@ -221,7 +221,7 @@
 
     padding:6px 14px;
 
-    background:rgba(255,255,255,.18);
+    background:rgba(134, 207, 228, 0.18);
 
     border-radius:999px;
 
@@ -304,6 +304,7 @@
 @media(max-width:500px){
 
 .hero-content{
+    color: black;
 
     flex-direction:column;
 

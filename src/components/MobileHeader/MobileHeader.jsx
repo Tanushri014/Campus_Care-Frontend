@@ -12,8 +12,6 @@ function MobileHeader() {
 
                 <h2>CampusCare</h2>
 
-                <span>Stay Connected</span>
-
             </div>
 
            <span>SBPCOE</span>
