@@ -52,34 +52,7 @@
     font-size:13px;
     margin-bottom:4px;
 }
-.profile-page-layout{
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
 
-.profile-page-layout .profile-left{
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-}
-
-.profile-page-layout .profile-info{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.profile-page-layout .verification{
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.profile-page-layout .profile-right{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
 .detail-card strong{
     color:#1e293b;
     font-size:15px;
@@ -191,7 +164,103 @@
 .logout-btn:hover {
     background: #eef3fc;
 }
+/* Profile Page */
 
+.profile-page-layout{
+
+    background:#f6f8fc;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding:30px 16px;
+
+}
+
+.profile-mobile-card{
+
+    width:100%;
+
+    max-width:420px;
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:32px 24px;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.profile-mobile-name{
+
+    margin:18px 0 28px;
+
+    color:#1e293b;
+
+}
+
+.profile-detail-card{
+
+    width:100%;
+
+    background:#f8fafc;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:14px;
+
+    padding:16px;
+
+    margin-bottom:16px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+.detail-label{
+
+    font-size:.8rem;
+
+    color:#64748b;
+
+    font-weight:600;
+
+}
+
+.detail-value{
+
+    color:#1e293b;
+
+    font-size:1rem;
+
+    font-weight:500;
+
+}
+
+.profile-mobile-logout{
+
+    width:100%;
+
+    margin-top:18px;
+
+}
 /* ==================================================== */
 /* RESPONSIVE                                            */
 /* ==================================================== */
