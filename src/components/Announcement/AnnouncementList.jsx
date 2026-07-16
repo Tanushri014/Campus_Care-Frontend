@@ -42,16 +42,17 @@ function AnnouncementList() {
  const handleDownload = async (announcement) => {
     try {
         const response = await downloadAnnouncement(announcement.id);
+        const url = response.data;
 
-        console.log("Backend response:", response);
-
-        window.open(response.data, "_blank");
-
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", ""); // hints the browser to download, not navigate
+        link.setAttribute("target", "_blank");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     } catch (error) {
-
-        console.log(error.response);
-        console.log(error);
-
+        console.error(error);
     }
 };
     return (
