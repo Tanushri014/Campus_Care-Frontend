@@ -40,19 +40,19 @@ function AnnouncementList() {
     };
 
  const handleDownload = async (announcement) => {
-
     try {
-
         const response = await downloadAnnouncement(announcement.id);
+
+        console.log("Backend response:", response);
 
         window.open(response.data, "_blank");
 
     } catch (error) {
 
-        console.error(error);
+        console.log(error.response);
+        console.log(error);
 
     }
-
 };
     return (
 
