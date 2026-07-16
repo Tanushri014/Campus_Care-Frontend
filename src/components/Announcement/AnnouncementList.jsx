@@ -39,15 +39,24 @@ function AnnouncementList() {
 
     };
 
-  const handleDownload = (announcement) => {
+ const handleDownload = (announcement) => {
     if (!announcement.fileUrl) return;
+
+    const fileName = `${announcement.title}.pdf`;
 
     const downloadUrl = announcement.fileUrl.replace(
         "/upload/",
-        "/upload/fl_attachment/"
+        `/upload/fl_attachment:${encodeURIComponent(fileName)}/`
     );
 
-    window.open(downloadUrl, "_blank");
+    const link = document.createElement("a");
+    link.href = downloadUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 };
     return (
 

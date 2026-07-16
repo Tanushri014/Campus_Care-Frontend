@@ -146,14 +146,14 @@ function ComplaintDetails() {
 
                 </div>
 
-                {complaint.imagePath && (
+                {complaint.imageUrl && (
 
                     <div className="info-group">
 
                         <label>Reference Image</label>
 
                         <img
-                            src={complaint.imagePath}
+                            src={complaint.imageUrl}
                             alt="Complaint"
                         />
 

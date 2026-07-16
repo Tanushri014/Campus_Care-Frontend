@@ -1,182 +1,148 @@
+* {
+    box-sizing: border-box;
+}
+
 .college-page {
     min-height: 100vh;
-    background: linear-gradient(135deg, #2563eb, #1e40af);
+    width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 2rem;
+    justify-content: center;
+    background: linear-gradient(180deg, #eef3fc 0%, #ffffff 100%);
+    padding: 40px 20px;
 }
 
 .college-card {
     width: 100%;
-    max-width: 480px;
+    max-width: 440px;
     background: #fff;
     border-radius: 20px;
-    padding: 2.5rem;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 50px rgba(15, 23, 41, 0.08);
+    padding: 44px 40px;
 }
 
+/* ---------- HEADER ---------- */
 .college-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 30px;
 }
 
 .college-header h1 {
-    color: #2563eb;
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: .5rem;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #2b5cf0;
+    margin: 0 0 6px;
 }
 
 .college-header h2 {
-    color: #1e293b;
-    font-size: 1.7rem;
-    margin-bottom: .5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f1729;
+    margin: 0 0 10px;
 }
 
 .college-header p {
-    color: #64748b;
+    font-size: 0.92rem;
+    color: #6b7280;
     line-height: 1.6;
-    font-size: .95rem;
+    margin: 0;
 }
 
-/* ===========================
-            FORM
-=========================== */
-
+/* ---------- FORM ---------- */
 .college-form {
     display: flex;
     flex-direction: column;
+    gap: 18px;
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.5rem;
+    gap: 6px;
 }
 
 .input-group label {
-    margin-bottom: .45rem;
-    color: #334155;
+    font-size: 0.88rem;
     font-weight: 600;
-    font-size: .92rem;
+    color: #1f2937;
 }
 
 .input-group input {
     width: 100%;
-    padding: .95rem 1rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 12px;
+    padding: 12px 14px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 0.95rem;
     outline: none;
-    font-size: .95rem;
-    transition: .3s;
-    background: #fff;
-}
-
-.input-group input::placeholder {
-    color: #94a3b8;
+    transition: border-color 0.2s ease;
 }
 
 .input-group input:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, .12);
+    border-color: #2b5cf0;
 }
 
-/* ===========================
-          ERROR
-=========================== */
+.input-group input::placeholder {
+    color: #9ca3af;
+}
 
 .error-message {
     background: #fee2e2;
-    color: #b91c1c;
-    border: 1px solid #fecaca;
-    border-radius: 10px;
-    padding: .8rem;
-    text-align: center;
-    margin-bottom: 1rem;
-    font-size: .9rem;
+    color: #dc2626;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin: 0;
 }
 
-/* ===========================
-          BUTTON
-=========================== */
-
-.verify-btn {
+.college-form .verify-btn {
     width: 100%;
-    padding: 1rem;
-    border: none;
-    border-radius: 12px;
-    background: #2563eb;
+    background: #2b5cf0;
     color: #fff;
+    border: none;
+    outline: none;
+    padding: 13px 0;
+    border-radius: 10px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: .3s;
+    margin-top: 4px;
+    transition: background 0.2s ease;
 }
 
-.verify-btn:hover:not(:disabled) {
-    background: #1d4ed8;
-    transform: translateY(-2px);
+.college-form .verify-btn:hover:not(:disabled) {
+    background: #1e46c9;
 }
 
-.verify-btn:disabled {
-    background: #94a3b8;
+.college-form .verify-btn:disabled {
+    background: #93a9f7;
     cursor: not-allowed;
 }
 
-/* ===========================
-          TABLET
-=========================== */
-
-@media (max-width: 768px) {
-
-    .college-page {
-        padding: 1rem;
-    }
-
+/* ==================================================== */
+/* RESPONSIVE                                            */
+/* ==================================================== */
+@media (max-width: 520px) {
     .college-card {
-        padding: 2rem;
-    }
-
-    .college-header h1 {
-        font-size: 2rem;
-    }
-
-    .college-header h2 {
-        font-size: 1.5rem;
-    }
-
-}
-
-/* ===========================
-          MOBILE
-=========================== */
-
-@media (max-width: 480px) {
-
-    .college-card {
-        padding: 1.5rem;
+        padding: 32px 24px;
         border-radius: 16px;
     }
 
     .college-header h1 {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
     }
 
     .college-header h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .college-page {
+        padding: 24px 12px;
     }
 
-    .college-header p {
-        font-size: .9rem;
+    .college-card {
+        padding: 26px 18px;
     }
-
-    .input-group input {
-        font-size: .9rem;
-    }
-
-    .verify-btn {
-        font-size: .9rem;
-    }
-
 }

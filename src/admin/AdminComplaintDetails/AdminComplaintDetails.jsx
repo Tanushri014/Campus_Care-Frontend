@@ -177,13 +177,13 @@ function AdminComplaintDetails() {
 
                 {
 
-                    complaint.imagePath && (
+                    complaint.imageUrl && (
 
                         <img
 
                             className="complaint-image"
 
-                            src={complaint.imagePath}
+                            src={complaint.imageUrl}
 
                             alt="Complaint"
 

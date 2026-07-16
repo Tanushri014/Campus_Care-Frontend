@@ -32,54 +32,60 @@ function AnnouncementPreview({ onViewAll, hideViewAll = false }) {
  const handleDownload = (announcement) => {
     if (!announcement.fileUrl) return;
 
+    const fileName = `${announcement.title}.pdf`;
+
     const downloadUrl = announcement.fileUrl.replace(
         "/upload/",
-        "/upload/fl_attachment/"
+        `/upload/fl_attachment:${encodeURIComponent(fileName)}/`
     );
 
-    window.open(downloadUrl, "_blank");
+    const link = document.createElement("a");
+    link.href = downloadUrl;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 };
-    return (
+    
+   return (
+    <section className="announcement-preview">
 
-        <section className="announcement-preview">
+        <div className="announcement-preview-header">
 
-    <div className="announcement-preview-header">
+            <div>
+                <h2>Latest Announcements</h2>
 
-        <div>
-            <h2>Latest Announcements</h2>
+                <p>
+                    Stay updated with important campus notices.
+                </p>
+            </div>
 
-            <p>
-                Stay updated with important campus notices.
-            </p>
+            {!hideViewAll && (
+                <button
+                    className="announcement-view-btn"
+                    onClick={onViewAll}
+                >
+                    View All
+                </button>
+            )}
+
         </div>
 
-        {!hideViewAll && (
-            <button
-                className="announcement-view-btn"
-                onClick={onViewAll}
-            >
-                View All
-            </button>
-        )}
+        <div className="announcement-grid">
 
-    </div>
+            {announcements.map((announcement) => (
 
-    <div className="announcement-grid">
+                <AnnouncementCard
+                    key={announcement.id}
+                    announcement={announcement}
+                    onDownload={() => handleDownload(announcement)}
+                />
 
-        {announcements.map((announcement) => (
+            ))}
 
-            <AnnouncementCard
-                key={announcement.id}
-                announcement={announcement}
-                onDownload={() => handleDownload(announcement)}
-            />
+        </div>
 
-        ))}
-
-    </div>
-
-</section>
-    );
+    </section>
+);
 
 }
 
