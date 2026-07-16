@@ -15,7 +15,48 @@
     flex-wrap: wrap;
     color: #fff;
 }
+.student-profile-card{
+    width:100%;
+    max-width:430px;
+    margin:auto;
+    background:#fff;
+    border-radius:20px;
+    padding:35px 30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    text-align:center;
+}
 
+.profile-email{
+    color:#64748b;
+    margin:10px 0 24px;
+}
+
+.profile-details{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    margin:25px 0;
+}
+
+.detail-card{
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:14px 16px;
+    text-align:left;
+}
+
+.detail-card span{
+    display:block;
+    color:#64748b;
+    font-size:13px;
+    margin-bottom:4px;
+}
+
+.detail-card strong{
+    color:#1e293b;
+    font-size:15px;
+}
 /* ---------- LEFT ---------- */
 .profile-left {
     display: flex;
