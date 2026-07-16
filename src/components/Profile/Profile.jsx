@@ -2,232 +2,127 @@ import "./Profile.css";
 import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../context/AuthContext";
+
 import { logout } from "../../api/authApi";
-
 function Profile({ user, role }) {
+const navigate = useNavigate();
 
-    const navigate = useNavigate();
+const { setUser } = useAuth();
+const handleLogout = async () => {
 
-    const { setUser } = useAuth();
+    try {
 
-    const handleLogout = async () => {
+        await logout();
 
-        try {
+    }
 
-            await logout();
+    catch (err) {
 
-        }
+        console.error(err);
 
-        catch (err) {
+    }
 
-            console.error(err);
+    finally {
 
-        }
+        setUser(null);
 
-        finally {
+        navigate("/login");
 
-            setUser(null);
+    }
 
-            navigate("/login");
-
-        }
-
-    };
-
+};
     return (
 
         <section className="student-profile">
 
-            {/* ================= STUDENT ================= */}
+            <div className="profile-left">
 
-            {role === "student" ? (
+                <div className="profile-avatar">
+                    {user.firstName?.charAt(0) || "S"}
+                </div>
 
-                <div className="student-profile-card">
-
-                    <div className="profile-avatar">
-
-                        {user.firstName?.charAt(0) || "S"}
-
-                    </div>
+                <div className="profile-info">
 
                     <h2>
-
-                        {user.firstName} {user.lastName}
-
+                        Welcome back, {user.firstName || "Student"} 👋
                     </h2>
 
-                    <p className="profile-email">
+                    <h3>
+                        {user.firstName} {user.lastName}
+                    </h3>
 
-                        {user.email}
+                    <p>{user.email}</p>
 
-                    </p>
+                    {role === "student" && (
+                        <>
 
-                    <div className="verification">
+                            <p>
+                                College ID : {user.collegeId}
+                            </p>
 
-                        {user.emailVerified && (
+                            <div className="verification">
 
-                            <span className="verified">
+                                {user.emailVerified && (
+                                    <span className="verified">
+                                        ✓ Email Verified
+                                    </span>
+                                )}
 
-                                ✓ Email Verified
+                                {user.collegeVerified && (
+                                    <span className="verified">
+                                        ✓ College Verified
+                                    </span>
+                                )}
 
-                            </span>
+                            </div>
 
-                        )}
+                        </>
+                    )}
 
-                        {user.collegeVerified && (
-
-                            <span className="verified">
-
-                                ✓ College Verified
-
-                            </span>
-
-                        )}
-
-                    </div>
-
-                    <div className="profile-details">
-
-                        <div className="detail-card">
-
-                            <span>Name</span>
-
-                            <strong>
-
-                                {user.firstName} {user.lastName}
-
-                            </strong>
-
-                        </div>
-
-                        <div className="detail-card">
-
-                            <span>College ID</span>
-
-                            <strong>
-
-                                {user.collegeId}
-
-                            </strong>
-
-                        </div>
-
-                        <div className="detail-card">
-
-                            <span>Email</span>
-
-                            <strong>
-
-                                {user.email}
-
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                    <button
-                        className="logout-btn"
-                        onClick={handleLogout}
-                    >
-                        Logout
-                    </button>
+                    {role === "admin" && (
+                        <p>
+                            Department : {user.department}
+                        </p>
+                    )}
 
                 </div>
 
-            ) : (
+            </div>
 
-                /* ================= ADMIN ================= */
+            <div className="profile-right">
 
-                <>
+    <div className="stats-grid">
 
-                    <div className="profile-left">
+        <div className="stat-card">
+            <h3>{user.stats?.total ?? 0}</h3>
+            <p>Complaints</p>
+        </div>
 
-                        <div className="profile-avatar">
+        <div className="stat-card">
+            <h3>{user.stats?.resolved ?? 0}</h3>
+            <p>Resolved</p>
+        </div>
 
-                            {user.firstName?.charAt(0) || "A"}
+        <div className="stat-card">
+            <h3>{user.stats?.pending ?? 0}</h3>
+            <p>Pending</p>
+        </div>
 
-                        </div>
+    </div>
 
-                        <div className="profile-info">
+    <div className="logout-wrapper">
+        <button
+            className="logout-btn"
+            onClick={handleLogout}
+        >
+            Logout
+        </button>
+    </div>
 
-                            <h2>
-
-                                Welcome back, {user.firstName} 👋
-
-                            </h2>
-
-                            <h3>
-
-                                {user.firstName} {user.lastName}
-
-                            </h3>
-
-                            <p>{user.email}</p>
-
-                            <p>
-
-                                Department : {user.department}
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                    <div className="profile-right">
-
-                        <div className="stats-grid">
-
-                            <div className="stat-card">
-
-                                <h3>{user.stats?.total ?? 0}</h3>
-
-                                <p>Complaints</p>
-
-                            </div>
-
-                            <div className="stat-card">
-
-                                <h3>{user.stats?.resolved ?? 0}</h3>
-
-                                <p>Resolved</p>
-
-                            </div>
-
-                            <div className="stat-card">
-
-                                <h3>{user.stats?.pending ?? 0}</h3>
-
-                                <p>Pending</p>
-
-                            </div>
-
-                        </div>
-
-                        <div className="logout-wrapper">
-
-                            <button
-                                className="logout-btn"
-                                onClick={handleLogout}
-                            >
-
-                                Logout
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </>
-
-            )}
-
+</div>
         </section>
 
     );
-
 }
 
 export default Profile;
