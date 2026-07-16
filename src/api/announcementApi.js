@@ -17,3 +17,6 @@ export const deleteAnnouncement = (id) =>
 
 export const getAnnouncements = (page = 0, size = 10) =>
     api.get(`/announcements?page=${page}&size=${size}`);
+
+export const downloadAnnouncement = (id) =>
+    api.get(`/announcements/${id}/download`);

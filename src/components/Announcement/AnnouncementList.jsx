@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import AnnouncementCard from "./AnnouncementCard";
-import { getAnnouncements } from "../../api/announcementApi";
+import { getAnnouncements,downloadAnnouncement } from "../../api/announcementApi";
 
 import "./AnnouncementList.css";
 
@@ -39,15 +39,20 @@ function AnnouncementList() {
 
     };
 
- const handleDownload = (announcement) => {
-    console.log("Original URL:", announcement.fileUrl);
+ const handleDownload = async (announcement) => {
 
-    if (!announcement.fileUrl) return;
+    try {
 
-    window.open(
-    `${API_BASE_URL}/announcements/${announcement.id}/download`,
-    "_blank"
-);
+        const response = await downloadAnnouncement(announcement.id);
+
+        window.open(response.data, "_blank");
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
 };
     return (
 
