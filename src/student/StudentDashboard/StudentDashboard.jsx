@@ -5,37 +5,57 @@ import StudentProfile from "../StudentProfile/StudentProfile";
 import ComplaintPreview from "../../components/Complaint/ComplaintPreview/ComplaintPreview";
 import AnnouncementPreview from "../../components/Announcement/AnnouncementPreview";
 import LostFoundPreview from "../LostFound/LostFoundPreview";
+import {
+    FiFileText,
+    FiClock,
+    FiCheckCircle,
+    FiPackage
+} from "react-icons/fi";
+import {
+    getMyComplaints,
+    getStudentProfile
+} from "../../api/studentApi";
 
-import { getMyComplaints } from "../../api/studentApi";
+import "./StudentDashboard.css";
 
 function StudentDashboard() {
 
     const navigate = useNavigate();
 
     const [complaints, setComplaints] = useState([]);
+    const [student, setStudent] = useState(null);
 
     useEffect(() => {
-        fetchComplaints();
+
+        loadDashboard();
+
     }, []);
 
-    const fetchComplaints = async () => {
+    const loadDashboard = async () => {
 
-    try {
+        try {
 
-        // Fetch all complaints for dashboard stats
-        const response = await getMyComplaints(0, 1000);
+            const complaintResponse =
+                await getMyComplaints(0, 1000);
 
-        setComplaints(response.data.content || []);
+            setComplaints(
+                complaintResponse.data.content || []
+            );
 
-    } catch (err) {
+            const profileResponse =
+                await getStudentProfile();
 
-        console.error("Failed to load complaints:", err);
+            setStudent(profileResponse.data);
 
-        setComplaints([]);
+        }
 
-    }
+        catch (err) {
 
-};
+            console.error(err);
+
+        }
+
+    };
 
     const complaintList = Array.isArray(complaints)
         ? complaints
@@ -45,31 +65,164 @@ function StudentDashboard() {
 
         total: complaintList.length,
 
-        resolved: complaintList.filter(
-            complaint => complaint.status === "COMPLETED"
+        pending: complaintList.filter(
+            c => c.status !== "COMPLETED"
         ).length,
 
-        pending: complaintList.filter(
-            complaint => complaint.status !== "COMPLETED"
-        ).length,
+        resolved: complaintList.filter(
+            c => c.status === "COMPLETED"
+        ).length
 
     };
 
-   return (
-    <div className="student-dashboard">
+    return (
 
-        <StudentProfile stats={stats} />
+        <div className="student-dashboard">
 
-        <ComplaintPreview />
+            {/* Desktop */}
 
-        <AnnouncementPreview
-            onViewAll={() => navigate("/student/announcements")}
-        />
+            <div className="desktop-dashboard">
 
-        <LostFoundPreview />
+                <StudentProfile stats={stats} />
+
+                <ComplaintPreview />
+
+                <AnnouncementPreview
+                    onViewAll={() =>
+                        navigate("/student/announcements")
+                    }
+                />
+
+                <LostFoundPreview />
+
+            </div>
+
+            {/* Mobile */}
+
+            <div className="mobile-dashboard">
+
+                <section className="mobile-welcome">
+
+                    <h1>
+                        Welcome,
+                        {" "}
+                        {student?.firstName || "Student"} 👋
+                    </h1>
+
+                    <p>
+                        Manage your campus activities from one place.
+                    </p>
+
+                </section>
+<section className="stats-grid-mobile">
+
+    <div
+        className="stat-card-mobile complaints"
+        onClick={() =>
+            navigate("/student/complaints")
+        }
+    >
+        <div className="stat-icon">
+            <FiFileText />
+        </div>
+
+        <h2>{stats.total}</h2>
+
+        <span>Total Complaints</span>
+    </div>
+
+    <div
+        className="stat-card-mobile pending"
+        onClick={() =>
+            navigate("/student/complaints")
+        }
+    >
+        <div className="stat-icon">
+            <FiClock />
+        </div>
+
+        <h2>{stats.pending}</h2>
+
+        <span>Pending</span>
+    </div>
+
+    <div
+        className="stat-card-mobile completed"
+        onClick={() =>
+            navigate("/student/complaints")
+        }
+    >
+        <div className="stat-icon">
+            <FiCheckCircle />
+        </div>
+
+        <h2>{stats.resolved}</h2>
+
+        <span>Completed</span>
+    </div>
+
+    <div
+        className="stat-card-mobile lostfound"
+        onClick={() =>
+            navigate("/student/lost-found")
+        }
+    >
+        <div className="stat-icon">
+            <FiPackage />
+        </div>
+
+        <h2>View</h2>
+
+        <span>Lost & Found</span>
+    </div>
+
+</section>
+
+                <section className="campus-care-card">
+
+    <div className="hero-content">
+
+        <div>
+
+            <span className="hero-tag">
+                CAMPUS CARE
+            </span>
+
+            <h2>
+                Stay Connected with Your Campus
+            </h2>
+
+            <p>
+                Submit complaints, stay updated with
+                announcements and never miss Lost &
+                Found updates—all in one place.
+            </p>
+
+            <button
+                className="hero-btn"
+                onClick={() =>
+                    navigate("/student/complaints/new")
+                }
+            >
+                Submit Complaint
+            </button>
+
+        </div>
+
+        <div className="hero-icon">
+
+            🎓
+
+        </div>
 
     </div>
-);
+
+</section>
+            </div>
+
+        </div>
+
+    );
 
 }
 

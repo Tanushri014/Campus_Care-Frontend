@@ -9,6 +9,8 @@ import Login from "./auth/Login/Login";
 import VerifyOtp from "./auth/VerifyOtp/VerifyOtp";
 import VerifyCollegeId from "./auth/VerifyCollegeId/VerifyCollegeId";
 
+
+import StudentLayout from "./layouts/StudentLayout";
 // Student
 import StudentDashboard from "./student/StudentDashboard/StudentDashboard";
 import StudentProfile from "./student/StudentProfile/StudentProfile";
@@ -86,115 +88,75 @@ function App() {
 
 
 
-
 <Route
-    path="/student/dashboard"
     element={
         <ProtectedRoute allowedRoles={["STUDENT"]}>
-            <StudentDashboard />
+            <StudentLayout />
         </ProtectedRoute>
     }
-/>
+>
 
-<Route
-    path="/student/profile"
-    element={
-        <ProtectedRoute allowedRoles={["STUDENT"]}>
-            <StudentProfile />
-        </ProtectedRoute>
-    }
-/>
+    <Route
+        path="/student/dashboard"
+        element={<StudentDashboard />}
+    />
 
-<Route
-    path="/student/announcements"
-    element={
-        <ProtectedRoute allowedRoles={["STUDENT"]}>
-            <StudentAnnouncement />
-        </ProtectedRoute>
-    }
-/>
+    <Route
+        path="/student/profile"
+        element={<StudentProfile />}
+    />
 
-<Route
-    path="/student/complaints"
-    element={
-        <ProtectedRoute allowedRoles={["STUDENT"]}>
-            <StudentComplaint />
-        </ProtectedRoute>
-    }
-/>
+    <Route
+        path="/student/announcements"
+        element={<StudentAnnouncement />}
+    />
 
-<Route
-    path="/student/complaints/:id"
-    element={
-        <ProtectedRoute allowedRoles={["STUDENT"]}>
-            <StudentComplaintDetails />
-        </ProtectedRoute>
-    }
-/>
+    <Route
+        path="/student/complaints"
+        element={<StudentComplaint />}
+    />
 
-<Route
-    path="/student/complaints/category"
-    element={
-        <ProtectedRoute allowedRoles={["STUDENT"]}>
-            <ComplaintCategory />
-        </ProtectedRoute>
-    }
-/>
+    <Route
+        path="/student/complaints/:id"
+        element={<StudentComplaintDetails />}
+    />
 
-<Route
-    path="/student/complaints/:id/feedback"
-    element={
-        <ProtectedRoute allowedRoles={["STUDENT"]}>
-            <Feedback />
-        </ProtectedRoute>
-    }
-/>
+    <Route
+        path="/student/complaints/category"
+        element={<ComplaintCategory />}
+    />
 
-<Route
-    path="/student/complaints/new"
-    element={
-        <ProtectedRoute allowedRoles={["STUDENT"]}>
-            <ComplaintForm />
-        </ProtectedRoute>
-    }
-/>
+    <Route
+        path="/student/complaints/:id/feedback"
+        element={<Feedback />}
+    />
 
-<Route
-    path="/student/complaints/submitted"
-    element={
-        <ProtectedRoute allowedRoles={["STUDENT"]}>
-            <ComplaintSubmitted />
-        </ProtectedRoute>
-    }
-/>
+    <Route
+        path="/student/complaints/new"
+        element={<ComplaintForm />}
+    />
 
-<Route
-    path="/student/lost-found"
-    element={
-        <ProtectedRoute allowedRoles={["STUDENT"]}>
-            <LostFoundList />
-        </ProtectedRoute>
-    }
-/>
+    <Route
+        path="/student/complaints/submitted"
+        element={<ComplaintSubmitted />}
+    />
 
-<Route
-    path="/student/lost-found/new"
-    element={
-        <ProtectedRoute allowedRoles={["STUDENT"]}>
-            <AddLostFound />
-        </ProtectedRoute>
-    }
-/>
+    <Route
+        path="/student/lost-found"
+        element={<LostFoundList />}
+    />
 
-<Route
-    path="/student/lost-found/:id"
-    element={
-        <ProtectedRoute allowedRoles={["STUDENT"]}>
-            <LostFoundDetails />
-        </ProtectedRoute>
-    }
-/>
+    <Route
+        path="/student/lost-found/new"
+        element={<AddLostFound />}
+    />
 
+    <Route
+        path="/student/lost-found/:id"
+        element={<LostFoundDetails />}
+    />
+
+</Route>
 
 
 
