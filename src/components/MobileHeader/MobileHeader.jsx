@@ -16,11 +16,7 @@ function MobileHeader() {
 
             </div>
 
-            <button className="notification-btn">
-
-                <FiBell />
-
-            </button>
+           <span>SBPCOE</span>
 
         </header>
 
