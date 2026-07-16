@@ -33,7 +33,7 @@ import Feedback from "./components/Complaint/Feedback/Feedback";
 import LostFoundList from "./student/LostFound/LostFoundList";
 import AddLostFound from "./student/LostFound/AddLostFound";
 import LostFoundDetails from "./student/LostFound/LostFoundDetails";
-import MainAdminAnnouncement from "./admin/MainAdminAnnouncement/MainAdminAnnouncement";
+
 // Admin
 import AdminDashboard from "./admin/AdminDashboard/AdminDashboard";
 
@@ -216,14 +216,7 @@ function App() {
     }
 />
 
-<Route
-    path="/main-admin/announcements"
-    element={
-        <ProtectedRoute allowedRoles={["ADMIN"]}>
-            <MainAdminAnnouncement />
-        </ProtectedRoute>
-    }
-/>
+
 
 
 <Route
