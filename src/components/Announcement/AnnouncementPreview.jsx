@@ -30,12 +30,16 @@ function AnnouncementPreview({ onViewAll, hideViewAll = false }) {
     };
 
  const handleDownload = (announcement) => {
+    console.log("Original URL:", announcement.fileUrl);
+
     if (!announcement.fileUrl) return;
 
     const downloadUrl = announcement.fileUrl.replace(
         "/upload/",
         "/upload/fl_attachment/"
     );
+
+    console.log("Download URL:", downloadUrl);
 
     window.open(downloadUrl, "_blank");
 };
