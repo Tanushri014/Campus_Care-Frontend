@@ -44,14 +44,10 @@ function AnnouncementList() {
 
     if (!announcement.fileUrl) return;
 
-    const downloadUrl = announcement.fileUrl.replace(
-        "/upload/",
-        "/upload/fl_attachment/"
-    );
-
-    console.log("Download URL:", downloadUrl);
-
-    window.open(downloadUrl, "_blank");
+    window.open(
+    `${API_BASE_URL}/announcements/${announcement.id}/download`,
+    "_blank"
+);
 };
     return (
 
