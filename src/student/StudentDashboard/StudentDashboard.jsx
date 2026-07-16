@@ -5,12 +5,7 @@ import StudentProfile from "../StudentProfile/StudentProfile";
 import ComplaintPreview from "../../components/Complaint/ComplaintPreview/ComplaintPreview";
 import AnnouncementPreview from "../../components/Announcement/AnnouncementPreview";
 import LostFoundPreview from "../LostFound/LostFoundPreview";
-import {
-    FiFileText,
-    FiClock,
-    FiCheckCircle,
-    FiPackage
-} from "react-icons/fi";
+
 import {
     getMyComplaints,
     getStudentProfile
@@ -23,6 +18,7 @@ function StudentDashboard() {
     const navigate = useNavigate();
 
     const [complaints, setComplaints] = useState([]);
+
     const [student, setStudent] = useState(null);
 
     useEffect(() => {
@@ -79,7 +75,7 @@ function StudentDashboard() {
 
         <div className="student-dashboard">
 
-            {/* Desktop */}
+            {/* ================= DESKTOP ================= */}
 
             <div className="desktop-dashboard">
 
@@ -97,127 +93,140 @@ function StudentDashboard() {
 
             </div>
 
-            {/* Mobile */}
+            {/* ================= MOBILE ================= */}
 
             <div className="mobile-dashboard">
 
-                <section className="mobile-welcome">
+                <section className="mobile-profile-card">
 
-                    <h1>
-                        Welcome,
-                        {" "}
-                        {student?.firstName || "Student"} 👋
-                    </h1>
+                    <img
+                        src={
+                            student?.profileImage ||
+                            "/default-avatar.png"
+                        }
+                        alt="Profile"
+                        className="mobile-profile-image"
+                    />
 
-                    <p>
-                        Manage your campus activities from one place.
+                    <h2>
+
+                        {student?.firstName}{" "}
+                        {student?.lastName}
+
+                    </h2>
+
+                    <p className="mobile-email">
+
+                        {student?.email}
+
                     </p>
 
+                    <div className="verification-stack">
+
+                        <div className="verify-row">
+
+                            ✅ Email Verified
+
+                        </div>
+
+                        <div className="verify-row">
+
+                            ✅ College Verified
+
+                        </div>
+
+                    </div>
+
+                    <div className="info-stack">
+
+                        <div className="info-item">
+
+                            <span>College ID</span>
+
+                            <strong>
+
+                                {student?.collegeId}
+
+                            </strong>
+
+                        </div>
+
+                        <div className="info-item">
+
+                            <span>Email</span>
+
+                            <strong>
+
+                                {student?.email}
+
+                            </strong>
+
+                        </div>
+
+                    </div>
+
                 </section>
-<section className="stats-grid-mobile">
-
-    <div
-        className="stat-card-mobile complaints"
-        onClick={() =>
-            navigate("/student/complaints")
-        }
-    >
-        <div className="stat-icon">
-            <FiFileText />
-        </div>
-
-        <h2>{stats.total}</h2>
-
-        <span>Total Complaints</span>
-    </div>
-
-    <div
-        className="stat-card-mobile pending"
-        onClick={() =>
-            navigate("/student/complaints")
-        }
-    >
-        <div className="stat-icon">
-            <FiClock />
-        </div>
-
-        <h2>{stats.pending}</h2>
-
-        <span>Pending</span>
-    </div>
-
-    <div
-        className="stat-card-mobile completed"
-        onClick={() =>
-            navigate("/student/complaints")
-        }
-    >
-        <div className="stat-icon">
-            <FiCheckCircle />
-        </div>
-
-        <h2>{stats.resolved}</h2>
-
-        <span>Completed</span>
-    </div>
-
-    <div
-        className="stat-card-mobile lostfound"
-        onClick={() =>
-            navigate("/student/lost-found")
-        }
-    >
-        <div className="stat-icon">
-            <FiPackage />
-        </div>
-
-        <h2>View</h2>
-
-        <span>Lost & Found</span>
-    </div>
-
-</section>
 
                 <section className="campus-care-card">
 
-    <div className="hero-content">
+                    <div className="hero-content">
 
-        <div>
+                        <div>
 
-            <span className="hero-tag">
-                CAMPUS CARE
-            </span>
+                            <span className="hero-tag">
 
-            <h2>
-                Stay Connected with Your Campus
-            </h2>
+                                CAMPUS CARE
 
-            <p>
-                Submit complaints, stay updated with
-                announcements and never miss Lost &
-                Found updates—all in one place.
-            </p>
+                            </span>
 
-            <button
-                className="hero-btn"
-                onClick={() =>
-                    navigate("/student/complaints/new")
-                }
-            >
-                Submit Complaint
-            </button>
+                            <h2>
 
-        </div>
+                                Stay Connected with Your Campus
 
-        <div className="hero-icon">
+                            </h2>
 
-            🎓
+                            <p>
 
-        </div>
+                                Submit complaints, stay updated
+                                with announcements and never
+                                miss Lost & Found updates—all
+                                in one place.
 
-    </div>
+                            </p>
 
-</section>
+                            <button
+                                className="hero-btn"
+                                onClick={() =>
+                                    navigate("/student/complaints/new")
+                                }
+                            >
+
+                                Submit Complaint
+
+                            </button>
+
+                        </div>
+
+                        <div className="hero-icon">
+
+                            🎓
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <AnnouncementPreview
+                    onViewAll={() =>
+                        navigate("/student/announcements")
+                    }
+                />
+
+                <ComplaintPreview />
+
+                <LostFoundPreview />
+
             </div>
 
         </div>
