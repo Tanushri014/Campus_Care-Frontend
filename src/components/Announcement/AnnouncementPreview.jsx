@@ -32,18 +32,12 @@ function AnnouncementPreview({ onViewAll, hideViewAll = false }) {
  const handleDownload = (announcement) => {
     if (!announcement.fileUrl) return;
 
-    const fileName = `${announcement.title}.pdf`;
-
     const downloadUrl = announcement.fileUrl.replace(
         "/upload/",
-        `/upload/fl_attachment:${encodeURIComponent(fileName)}/`
+        "/upload/fl_attachment/"
     );
 
-    const link = document.createElement("a");
-    link.href = downloadUrl;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open(downloadUrl, "_blank");
 };
     
    return (
