@@ -149,7 +149,26 @@
     line-height: 1.6;
     margin: 0;
 }
+.status-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
 
+.status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 20px;
+    border-radius: 999px;
+
+    min-width: 110px;
+
+    font-weight: 600;
+    text-transform: uppercase;
+}
 /* ---------- FEEDBACK BUTTON ---------- */
 .feedback-btn {
     width: 100%;

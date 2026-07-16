@@ -33,10 +33,7 @@ const isOwner =
 
             setItem(response.data);
             console.log(response.data);
-            console.log("Logged in user:", user);
-console.log("Item:", item);
-console.log("User ID:", user?.id);
-console.log("Owner ID:", item?.studentId);
+            
 console.log(
     "Is Owner:",
     Number(user?.id) === Number(item?.studentId)
@@ -131,22 +128,23 @@ const handleDelete = async () => {
 
                 </p>
 
-                <div className="student-info">
+                <div className="details-footer">
 
-                    <strong>Uploaded By:</strong>{" "}
+    <div className="student-info">
+        <strong>Uploaded By:</strong>{" "}
+        {item.firstName} {item.lastName}
+    </div>
 
-                    {item.firstName} {item.lastName}
+    {isOwner && (
+        <button
+            className="delete-btn"
+            onClick={handleDelete}
+        >
+            Delete Item
+        </button>
+    )}
 
-                </div>
-
-{isOwner && (
-    <button
-        className="delete-btn"
-        onClick={handleDelete}
-    >
-        Delete Item
-    </button>
-)}
+</div>
 
 
             </div>

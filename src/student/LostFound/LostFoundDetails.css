@@ -1,124 +1,151 @@
-* {
-    box-sizing: border-box;
-}
-
 .lostfound-details-page {
-    min-height: 100vh;
-    width: 100%;
-    background: linear-gradient(180deg, #eef3fc 0%, #ffffff 100%);
-    padding: 30px 20px 60px;
     display: flex;
     justify-content: center;
+    padding: 2rem;
+    background: #f5f7fb;
+    min-height: 100vh;
 }
 
 .lostfound-details-card {
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
     background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(15, 23, 41, 0.08);
-    padding: 40px;
+    border-radius: 18px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-.lostfound-details-card .back-btn {
-    background: none;
-    border: 2px solid #e5e7eb;
-    color: #1f2937;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 9px 18px;
-    border-radius: 8px;
+.back-btn {
+    padding: 0.7rem 1.2rem;
+    border: 1px solid #dcdcdc;
+    background: white;
+    border-radius: 10px;
     cursor: pointer;
-    margin-bottom: 24px;
-    transition: background 0.2s ease, border-color 0.2s ease;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    transition: 0.2s;
 }
 
-.lostfound-details-card .back-btn:hover {
-    background: #f9fafb;
-    border-color: #d1d5db;
+.back-btn:hover {
+    background: #f4f4f4;
 }
 
 .details-image {
     width: 100%;
-    max-height: 320px;
+    height: 360px;
     object-fit: cover;
-    border-radius: 14px;
-    display: block;
-    margin-bottom: 22px;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
 }
 
 .details-header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 14px;
+    align-items: center;
+    margin-bottom: 1.2rem;
 }
 
-.details-header .item-type {
-    font-size: 0.78rem;
-    font-weight: 700;
-    padding: 6px 16px;
-    border-radius: 30px;
-    text-transform: capitalize;
-}
-
-.item-type.lost {
-    background: #fee2e2;
-    color: #dc2626;
+.item-type {
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .item-type.found {
-    background: #d9f7e6;
-    color: #16a34a;
+    background: #dff7e6;
+    color: #15803d;
+}
+
+.item-type.lost {
+    background: #fde2e2;
+    color: #dc2626;
 }
 
 .details-header span:last-child {
-    font-size: 0.85rem;
-    color: #9ca3af;
+    color: #6b7280;
     font-weight: 500;
 }
 
 .lostfound-details-card h1 {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #0f1729;
-    margin: 0 0 16px;
+    font-size: 2rem;
+    color: #0f172a;
+    margin-bottom: 1rem;
 }
 
 .description {
-    font-size: 0.95rem;
-    color: #6b7280;
+    color: #555;
     line-height: 1.7;
-    margin: 0 0 24px;
+    margin-bottom: 2rem;
+}
+
+/* Uploaded By + Delete Button */
+
+.details-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
 .student-info {
-    background: #eef3fc;
+    flex: 1;
+    background: #eef4ff;
+    padding: 1rem 1.2rem;
     border-radius: 12px;
-    padding: 14px 18px;
-    font-size: 0.9rem;
-    color: #1f2937;
+    color: #1e40af;
+    font-size: 1rem;
 }
 
 .student-info strong {
-    color: #2b5cf0;
+    color: #1d4ed8;
 }
 
-/* ==================================================== */
-/* RESPONSIVE                                            */
-/* ==================================================== */
-@media (max-width: 600px) {
-    .lostfound-details-card {
-        padding: 28px 22px;
-        border-radius: 16px;
+.delete-btn {
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+    background: #b91c1c;
+}
+
+@media (max-width: 768px) {
+
+    .lostfound-details-page {
+        padding: 1rem;
     }
 
-    .lostfound-details-card h1 {
-        font-size: 1.3rem;
+    .lostfound-details-card {
+        padding: 1.5rem;
     }
 
     .details-image {
-        max-height: 220px;
+        height: 250px;
+    }
+
+    .details-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .details-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .delete-btn {
+        width: 100%;
     }
 }

@@ -208,15 +208,9 @@ function MainAdminDashboard() {
 
                         <h2>
 
-                            Latest Announcements
+                            Stay Updated With Every Announcement 
 
                         </h2>
-
-                        <p>
-
-                            Stay updated with campus notices.
-
-                        </p>
 
                     </div>
 

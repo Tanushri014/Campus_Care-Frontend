@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { getAdminComplaints } from "../../api/adminApi";
@@ -12,10 +12,11 @@ function AdminComplaint() {
     const [complaints, setComplaints] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
-    const [search, setSearch] = useState("");
 
     useEffect(() => {
+
         loadComplaints();
+
     }, []);
 
     const loadComplaints = async () => {
@@ -52,23 +53,6 @@ function AdminComplaint() {
         }
 
     };
-
-    const filteredComplaints = useMemo(() => {
-
-        return complaints.filter((complaint) => {
-
-            const keyword = search.toLowerCase();
-
-            return (
-                complaint.title.toLowerCase().includes(keyword) ||
-                complaint.description.toLowerCase().includes(keyword) ||
-                complaint.complaintCategory.toLowerCase().includes(keyword) ||
-                complaint.status.toLowerCase().includes(keyword)
-            );
-
-        });
-
-    }, [complaints, search]);
 
     if (loading) {
 
@@ -113,23 +97,9 @@ function AdminComplaint() {
 
                 </div>
 
-                <div className="search-container">
-
-                    <input
-                        className="search-box"
-                        type="text"
-                        placeholder="Search complaints..."
-                        value={search}
-                        onChange={(e) =>
-                            setSearch(e.target.value)
-                        }
-                    />
-
-                </div>
-
                 {
 
-                    filteredComplaints.length === 0 ?
+                    complaints.length === 0 ?
 
                         (
 
@@ -138,7 +108,7 @@ function AdminComplaint() {
                                 <h3>No Complaints Found</h3>
 
                                 <p>
-                                    There are currently no complaints matching your search.
+                                    There are currently no complaints available.
                                 </p>
 
                             </div>
@@ -153,7 +123,7 @@ function AdminComplaint() {
 
                                 {
 
-                                    filteredComplaints.map((complaint) => (
+                                    complaints.map((complaint) => (
 
                                         <div
                                             key={complaint.id}

@@ -152,10 +152,14 @@ function ComplaintDetails() {
 
                         <label>Reference Image</label>
 
-                        <img
-                            src={complaint.imageUrl}
-                            alt="Complaint"
-                        />
+                         <img
+            className="complaint-image"
+            src={complaint.imageUrl}
+            alt="Complaint"
+            onError={(e) => {
+                e.target.style.display = "none";
+            }}
+        />
 
                     </div>
 
