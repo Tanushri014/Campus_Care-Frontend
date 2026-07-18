@@ -9,7 +9,7 @@ import Login from "./auth/Login/Login";
 import VerifyOtp from "./auth/VerifyOtp/VerifyOtp";
 import VerifyCollegeId from "./auth/VerifyCollegeId/VerifyCollegeId";
 
-import MainAdminProfile from "./pages/MainAdminProfile/MainAdminProfile";
+import MainAdminProfile from "./admin/MainAdminProfile/MainAdminProfile";
 import StudentLayout from "./layouts/StudentLayout";
 // Student
 import StudentDashboard from "./student/StudentDashboard/StudentDashboard";
