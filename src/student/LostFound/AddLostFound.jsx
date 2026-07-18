@@ -121,12 +121,12 @@ const [loading, setLoading] = useState(false);
 
             <div className="add-lostfound-card">
 
-                <button
+                {/* <button
                     className="back-btn"
                     onClick={() => navigate(-1)}
                 >
                     ← Back
-                </button>
+                </button> */}
 
                 <h1>Report Lost / Found Item</h1>
 

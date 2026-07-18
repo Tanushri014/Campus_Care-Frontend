@@ -61,12 +61,12 @@ function ComplaintDetails() {
             <div className="complaint-details-page">
                 <h2>{error}</h2>
 
-                <button
+                {/* <button
                     className="back-button"
                     onClick={() => navigate(-1)}
                 >
                     ← Back
-                </button>
+                </button> */}
             </div>
         );
 
@@ -78,12 +78,12 @@ function ComplaintDetails() {
             <div className="complaint-details-page">
                 <h2>Complaint not found.</h2>
 
-                <button
+                {/* <button
                     className="back-button"
                     onClick={() => navigate(-1)}
                 >
                     ← Back
-                </button>
+                </button> */}
             </div>
         );
 
@@ -95,12 +95,12 @@ function ComplaintDetails() {
 
             <div className="details-card">
 
-                <button
+                {/* <button
                     className="back-button"
                     onClick={() => navigate(-1)}
                 >
                     ← Back
-                </button>
+                </button> */}
 
                 <h1>Complaint Details</h1>
 

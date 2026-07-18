@@ -72,12 +72,12 @@ function MainAdminComplaint() {
                 ← Back
             </button>
 
-            <input
+            {/* <input
                 className="search-box"
                 placeholder="Search complaint..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-            />
+            /> */}
 
             <div className="complaint-list-grid">
 

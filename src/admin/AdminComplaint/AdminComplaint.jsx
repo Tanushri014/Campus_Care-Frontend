@@ -80,12 +80,12 @@ function AdminComplaint() {
 
             <div className="admin-complaints-container">
 
-                <button
+                {/* <button
                     className="back-btn"
                     onClick={() => navigate("/admin/dashboard")}
                 >
                     ← Back to Dashboard
-                </button>
+                </button> */}
 
                 <div className="page-header">
 
