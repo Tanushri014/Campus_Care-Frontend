@@ -139,7 +139,7 @@ function AdminComplaintDetails() {
 
         <div className="admin-details-page">
 
-            <button
+            {/* <button
 
                 className="back-btn"
 
@@ -149,7 +149,7 @@ function AdminComplaintDetails() {
 
                 ← Back
 
-            </button>
+            </button> */}
 
             <div className="details-card">
 
