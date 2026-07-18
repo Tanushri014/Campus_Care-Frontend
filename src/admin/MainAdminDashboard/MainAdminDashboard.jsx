@@ -286,181 +286,95 @@ function MainAdminDashboard() {
         MOBILE VIEW
     ========================== */}
 
-    <div className="mobile-dashboard">
-        {/* Welcome */}
+   {/* =========================
+    MOBILE VIEW
+========================= */}
 
-<section className="mobile-admin-header">
+<div className="mobile-dashboard">
 
-    <div className="mobile-admin-avatar">
+    {/* Welcome */}
 
-        M
+    <section className="mobile-admin-header">
 
-    </div>
+        <div className="mobile-admin-avatar">
+            M
+        </div>
 
-    <div>
+        <div>
 
-        <span className="mobile-admin-role">
+            <span className="mobile-admin-role">
+                MAIN ADMINISTRATOR
+            </span>
 
-            MAIN ADMINISTRATOR
+            <h2>
+                Welcome Back 👋
+            </h2>
 
-        </span>
+            <p>
+                Manage complaints, announcements and campus updates.
+            </p>
 
-        <h2>
+        </div>
 
-            Welcome Back 👋
+    </section>
 
-        </h2>
+    {/* Stats */}
 
-        <p>
+    <section className="mobile-stats-grid">
 
-            Manage complaints, announcements and campus updates.
+        <div className="mobile-stat-card">
+            <h2>{totalComplaints}</h2>
+            <p>Total</p>
+        </div>
 
-        </p>
+        <div className="mobile-stat-card">
+            <h2>{pendingComplaints}</h2>
+            <p>Pending</p>
+        </div>
 
-    </div>
+        <div className="mobile-stat-card">
+            <h2>{resolvedComplaints}</h2>
+            <p>Resolved</p>
+        </div>
 
-</section>
+    </section>
 
-{/* Stats */}
+    {/* Analytics */}
 
-<section className="mobile-stats-grid">
+    <section className="mobile-chart-section">
 
-    <div className="mobile-stat-card">
+        <div className="mobile-section-header">
+            <h3>Analytics</h3>
+        </div>
 
-        <h2>
+        <AdminCharts />
 
-            {totalComplaints}
+    </section>
 
-        </h2>
+    {/* Create Announcement */}
 
-        <p>
+    <section className="mobile-action-card">
 
-            Total
-
-        </p>
-
-    </div>
-
-    <div className="mobile-stat-card">
-
-        <h2>
-
-            {pendingComplaints}
-
-        </h2>
-
-        <p>
-
-            Pending
-
-        </p>
-
-    </div>
-
-    <div className="mobile-stat-card">
-
-        <h2>
-
-            {resolvedComplaints}
-
-        </h2>
+        <h3>Create Announcement</h3>
 
         <p>
-
-            Resolved
-
+            Notify every student instantly with an important campus update.
         </p>
-
-    </div>
-
-</section>
-
-{/* Charts */}
-
-<section className="mobile-chart-section">
-
-    <div className="mobile-section-header">
-
-        <h3>
-
-            Analytics
-
-        </h3>
-
-    </div>
-
-    <AdminCharts />
-
-</section>
-
-{/* Recent Complaints */}
-
-<section className="mobile-complaints">
-
-    <div className="mobile-section-header">
-
-        <h3>
-
-            Recent Complaints
-
-        </h3>
 
         <button
-
-            className="view-all-mobile"
-
+            className="mobile-create-btn"
             onClick={() =>
-                navigate("/main-admin/complaints")
+                navigate("/main-admin/announcement/new")
             }
-
         >
-
-            View All
-
+            + Create Announcement
         </button>
 
-    </div>
-
-    <MainAdminComplaintPreview />
-
-</section>
-
-{/* Quick Action */}
-
-<section className="mobile-action-card">
-
-    <h3>
-
-        Create New Announcement
-
-    </h3>
-
-    <p>
-
-        Instantly notify every student across the campus.
-
-    </p>
-
-    <button
-
-        className="mobile-create-btn"
-
-        onClick={() =>
-            navigate("/main-admin/announcement/new")
-        }
-
-    >
-
-        + Create Announcement
-
-    </button>
-
-</section>
+    </section>
 
 </div>
 
 <MainAdminBottomNav />
-
 </div>
 
 );
