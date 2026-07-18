@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import {
     getAdminComplaints
 } from "../../api/adminApi";
-
+import MainAdminBottomNav from "../../components/MainAdminBottomNav/MainAdminBottomNav";
 import MainAdminComplaintPreview from "../MainAdminComplaintPreview/MainAdminComplaintPreview";
 import AnnouncementPreview from "../../components/Announcement/AnnouncementPreview";
 import AdminCharts from "../../components/AdminCharts";
@@ -458,6 +458,8 @@ function MainAdminDashboard() {
 </section>
 
 </div>
+
+<MainAdminBottomNav />
 
 </div>
 

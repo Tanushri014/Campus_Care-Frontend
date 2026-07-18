@@ -483,3 +483,16 @@ transform:translateY(-2px);
 }
 
 }
+.main-admin-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+@media (min-width: 769px) {
+    .main-admin-bottom-nav {
+        display: none;
+    }
+}
