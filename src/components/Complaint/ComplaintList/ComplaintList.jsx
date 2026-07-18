@@ -179,7 +179,7 @@ function ComplaintList({ role }) {
                     </p>
 
                 </div>
-
+{/* 
                 <div className="search-wrapper">
 
                     <input
@@ -192,7 +192,7 @@ function ComplaintList({ role }) {
                         }
                     />
 
-                </div>
+                </div> */}
 
             </div>
 

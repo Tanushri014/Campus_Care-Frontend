@@ -42,7 +42,7 @@ function ForgotPassword() {
 
             setError(
                 err.response?.data?.message ||
-                "Something went wrong."
+                "This email is not registerd ,please register first ."
             );
 
         }

@@ -7,11 +7,11 @@ function Hero() {
             <div className="hero-content">
 
                 <span className="hero-badge">
-                    Digital Campus Complaint Management
+                    Digital Campus Management System
                 </span>
 
                 <h1>
-                    Making Campus Complaints
+                    Making SBPCOE Campus 
                     <span> Simple, Transparent & Digital.</span>
                 </h1>
 

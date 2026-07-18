@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import StudentProfile from "../StudentProfile/StudentProfile";
 import ComplaintPreview from "../../components/Complaint/ComplaintPreview/ComplaintPreview";
 import AnnouncementPreview from "../../components/Announcement/AnnouncementPreview";
+import { logout } from "../../api/authApi";
 import LostFoundPreview from "../LostFound/LostFoundPreview";
 import {
     FiFileText,
@@ -19,7 +20,15 @@ import {
 import "./StudentDashboard.css";
 
 function StudentDashboard() {
-
+const handleLogout = async () => {
+    try {
+        await logout();
+    } catch (error) {
+        console.error("Logout failed:", error);
+    } finally {
+        navigate("/login", { replace: true });
+    }
+};
     const navigate = useNavigate();
 
     const [complaints, setComplaints] = useState([]);
@@ -201,7 +210,7 @@ function StudentDashboard() {
             <button
                 className="hero-btn"
                 onClick={() =>
-                    navigate("/student/complaints/new")
+                    navigate("/student/complaints/category")
                 }
             >
                 Submit Complaint

@@ -243,7 +243,9 @@
     font-weight:600;
 
 }
-
+.verified{
+    color: black;
+}
 .detail-value{
 
     color:#1e293b;
