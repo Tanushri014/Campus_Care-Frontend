@@ -9,7 +9,7 @@ import Login from "./auth/Login/Login";
 import VerifyOtp from "./auth/VerifyOtp/VerifyOtp";
 import VerifyCollegeId from "./auth/VerifyCollegeId/VerifyCollegeId";
 
-
+import MainAdminProfile from "./pages/MainAdminProfile/MainAdminProfile";
 import StudentLayout from "./layouts/StudentLayout";
 // Student
 import StudentDashboard from "./student/StudentDashboard/StudentDashboard";
@@ -158,8 +158,14 @@ function App() {
 
 </Route>
 
-
-
+<Route
+    path="/main-admin/profile"
+    element={
+        <ProtectedRoute allowedRoles={["ADMIN"]}>
+            <MainAdminProfile />
+        </ProtectedRoute>
+    }
+/>
 
      <Route
     path="/admin/dashboard"
@@ -170,7 +176,14 @@ function App() {
     }
 />
 
-
+<Route
+    path="/main-admin/announcements"
+    element={
+        <ProtectedRoute allowedRoles={["ADMIN"]}>
+            <AdminAnnouncement />
+        </ProtectedRoute>
+    }
+/>
 <Route
     path="/admin/announcements"
     element={

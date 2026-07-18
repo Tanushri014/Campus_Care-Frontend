@@ -31,9 +31,12 @@ function MainAdminDashboard() {
 
         try {
 
-            const response = await getAdminComplaints(0, 1000);
+            const response =
+                await getAdminComplaints(0, 1000);
 
-            setComplaints(response.data.content || []);
+            setComplaints(
+                response.data.content || []
+            );
 
         }
 
@@ -59,13 +62,29 @@ function MainAdminDashboard() {
 
     if (loading) {
 
-        return <h2 className="dashboard-loading">Loading Dashboard...</h2>;
+        return (
+
+            <h2 className="dashboard-loading">
+
+                Loading Dashboard...
+
+            </h2>
+
+        );
 
     }
 
     if (error) {
 
-        return <h2 className="dashboard-loading">{error}</h2>;
+        return (
+
+            <h2 className="dashboard-loading">
+
+                {error}
+
+            </h2>
+
+        );
 
     }
 
@@ -84,182 +103,366 @@ function MainAdminDashboard() {
     ).length;
 
     return (
+        <div className="main-dashboard">
 
-        <section className="main-dashboard">
+    {/* =========================
+        DESKTOP VIEW
+    ========================== */}
 
-            {/* HERO */}
+    <div className="desktop-dashboard">
 
-            <div className="dashboard-hero">
+        {/* HERO */}
+
+        <div className="dashboard-hero">
+
+            <div>
+
+                <h1>
+
+                    Main Admin Dashboard
+
+                </h1>
+
+                <p>
+
+                    Manage complaints, announcements and monitor every
+                    department from one place.
+
+                </p>
+
+            </div>
+
+            <div className="admin-badge">
+
+                <div className="admin-avatar">
+
+                    M
+
+                </div>
 
                 <div>
 
-                    <h1>
+                    <h3>
 
-                        Main Admin Dashboard
+                        Main Administrator
 
-                    </h1>
+                    </h3>
 
-                    <p>
+                    <span>
 
-                        Manage complaints, announcements and monitor every
-                        department from one place.
+                        CampusCare Control Center
 
-                    </p>
-
-                </div>
-
-                <div className="admin-badge">
-
-                    <div className="admin-avatar">
-
-                        M
-
-                    </div>
-
-                    <div>
-
-                        <h3>
-
-                            Main Administrator
-
-                        </h3>
-
-                        <span>
-
-                            CampusCare Control Center
-
-                        </span>
-
-                    </div>
+                    </span>
 
                 </div>
 
             </div>
 
-            {/* STATS */}
+        </div>
 
-            <div className="stats-grid">
+        {/* STATS */}
 
-                <div className="dashboard-card">
+        <div className="stats-grid">
+
+            <div className="dashboard-card">
+
+                <h2>
+
+                    {totalComplaints}
+
+                </h2>
+
+                <p>
+
+                    Total Complaints
+
+                </p>
+
+            </div>
+
+            <div className="dashboard-card">
+
+                <h2>
+
+                    {pendingComplaints}
+
+                </h2>
+
+                <p>
+
+                    Pending Complaints
+
+                </p>
+
+            </div>
+
+            <div className="dashboard-card">
+
+                <h2>
+
+                    {resolvedComplaints}
+
+                </h2>
+
+                <p>
+
+                    Resolved Complaints
+
+                </p>
+
+            </div>
+
+        </div>
+
+        {/* CHARTS */}
+
+        <AdminCharts />
+
+        {/* COMPLAINTS */}
+
+        <MainAdminComplaintPreview />
+
+        {/* ANNOUNCEMENTS */}
+
+        <section className="announcement-section">
+
+            <div className="section-header">
+
+                <div>
 
                     <h2>
 
-                        {totalComplaints}
+                        Stay Updated With Every Announcement
 
                     </h2>
-
-                    <p>
-
-                        Total Complaints
-
-                    </p>
 
                 </div>
 
-                <div className="dashboard-card">
+                <div className="section-buttons">
 
-                    <h2>
+                    <button
 
-                        {pendingComplaints}
+                        className="outline-btn"
 
-                    </h2>
+                        onClick={() =>
 
-                    <p>
+                            navigate("/main-admin/announcements")
 
-                        Pending Complaints
+                        }
 
-                    </p>
+                    >
 
-                </div>
+                        View All
 
-                <div className="dashboard-card">
+                    </button>
 
-                    <h2>
+                    <button
 
-                        {resolvedComplaints}
+                        className="primary-btn"
 
-                    </h2>
+                        onClick={() =>
 
-                    <p>
+                            navigate("/main-admin/announcement/new")
 
-                        Resolved Complaints
+                        }
 
-                    </p>
+                    >
+
+                        + Create
+
+                    </button>
 
                 </div>
 
             </div>
 
-            {/* CHARTS */}
-
-            <AdminCharts />
-
-            {/* COMPLAINTS */}
-
-            <MainAdminComplaintPreview />
-
-            {/* ANNOUNCEMENTS */}
-
-            <section className="announcement-section">
-
-                <div className="section-header">
-
-                    <div>
-
-                        <h2>
-
-                            Stay Updated With Every Announcement 
-
-                        </h2>
-
-                    </div>
-
-                    <div className="section-buttons">
-
-                        <button
-
-                            className="outline-btn"
-
-                            onClick={() =>
-
-                                navigate("/main-admin/announcements")
-
-                            }
-
-                        >
-
-                            View All
-
-                        </button>
-
-                        <button
-
-                            className="primary-btn"
-
-                            onClick={() =>
-
-                                navigate("/main-admin/announcement/new")
-
-                            }
-
-                        >
-
-                            + Create
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <AnnouncementPreview hideViewAll />
-
-            </section>
+            <AnnouncementPreview hideViewAll />
 
         </section>
 
-    );
+    </div>
 
+    {/* =========================
+        MOBILE VIEW
+    ========================== */}
+
+    <div className="mobile-dashboard">
+        {/* Welcome */}
+
+<section className="mobile-admin-header">
+
+    <div className="mobile-admin-avatar">
+
+        M
+
+    </div>
+
+    <div>
+
+        <span className="mobile-admin-role">
+
+            MAIN ADMINISTRATOR
+
+        </span>
+
+        <h2>
+
+            Welcome Back 👋
+
+        </h2>
+
+        <p>
+
+            Manage complaints, announcements and campus updates.
+
+        </p>
+
+    </div>
+
+</section>
+
+{/* Stats */}
+
+<section className="mobile-stats-grid">
+
+    <div className="mobile-stat-card">
+
+        <h2>
+
+            {totalComplaints}
+
+        </h2>
+
+        <p>
+
+            Total
+
+        </p>
+
+    </div>
+
+    <div className="mobile-stat-card">
+
+        <h2>
+
+            {pendingComplaints}
+
+        </h2>
+
+        <p>
+
+            Pending
+
+        </p>
+
+    </div>
+
+    <div className="mobile-stat-card">
+
+        <h2>
+
+            {resolvedComplaints}
+
+        </h2>
+
+        <p>
+
+            Resolved
+
+        </p>
+
+    </div>
+
+</section>
+
+{/* Charts */}
+
+<section className="mobile-chart-section">
+
+    <div className="mobile-section-header">
+
+        <h3>
+
+            Analytics
+
+        </h3>
+
+    </div>
+
+    <AdminCharts />
+
+</section>
+
+{/* Recent Complaints */}
+
+<section className="mobile-complaints">
+
+    <div className="mobile-section-header">
+
+        <h3>
+
+            Recent Complaints
+
+        </h3>
+
+        <button
+
+            className="view-all-mobile"
+
+            onClick={() =>
+                navigate("/main-admin/complaints")
+            }
+
+        >
+
+            View All
+
+        </button>
+
+    </div>
+
+    <MainAdminComplaintPreview />
+
+</section>
+
+{/* Quick Action */}
+
+<section className="mobile-action-card">
+
+    <h3>
+
+        Create New Announcement
+
+    </h3>
+
+    <p>
+
+        Instantly notify every student across the campus.
+
+    </p>
+
+    <button
+
+        className="mobile-create-btn"
+
+        onClick={() =>
+            navigate("/main-admin/announcement/new")
+        }
+
+    >
+
+        + Create Announcement
+
+    </button>
+
+</section>
+
+</div>
+
+</div>
+
+);
 }
 
 export default MainAdminDashboard;
+   

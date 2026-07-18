@@ -13,54 +13,96 @@ function Profile({
                 layout === "profile" ? "profile-page-layout" : ""
             }`}
         >
-            {layout === "profile" ? (
-                <div className="profile-mobile-card">
-                    <div className="profile-avatar">
-                        {user.firstName?.charAt(0) || "S"}
-                    </div>
+           {layout === "profile" ? (
+    <div className="profile-mobile-card">
 
-                    <h2 className="profile-mobile-name">
-                        {user.firstName} {user.lastName}
-                    </h2>
+        <div className="profile-avatar">
+            {user.firstName?.charAt(0) || "A"}
+        </div>
 
-                    <div className="profile-detail-card">
-                        <span className="detail-label">Email</span>
-                        <span className="detail-value">{user.email}</span>
-                    </div>
+        <h2 className="profile-mobile-name">
+            {user.firstName} {user.lastName}
+        </h2>
 
-                    <div className="profile-detail-card">
-                        <span className="detail-label">College ID</span>
-                        <span className="detail-value">{user.collegeId}</span>
-                    </div>
+        <div className="profile-detail-card">
+            <span className="detail-label">
+                Email
+            </span>
 
-                    {user.emailVerified && (
-                        <div className="profile-detail-card">
-                            <span className="detail-label">Email Status</span>
-                            <span className="verified">
-                                ✓ Email Verified
-                            </span>
-                        </div>
-                    )}
+            <span className="detail-value">
+                {user.email}
+            </span>
+        </div>
 
-                    {user.collegeVerified && (
-                        <div className="profile-detail-card">
-                            <span className="detail-label">
-                                College Status
-                            </span>
-                            <span className="verified">
-                                ✓ College Verified
-                            </span>
-                        </div>
-                    )}
+        {role === "student" ? (
+            <>
+                <div className="profile-detail-card">
 
-                    <button
-                        className="logout-btn profile-mobile-logout"
-                        onClick={handleLogout}
-                    >
-                        Logout
-                    </button>
+                    <span className="detail-label">
+                        College ID
+                    </span>
+
+                    <span className="detail-value">
+                        {user.collegeId}
+                    </span>
+
                 </div>
-            ) : (
+
+                {user.emailVerified && (
+
+                    <div className="profile-detail-card">
+
+                        <span className="detail-label">
+                            Email Status
+                        </span>
+
+                        <span className="verified">
+                            ✓ Email Verified
+                        </span>
+
+                    </div>
+
+                )}
+
+                {user.collegeVerified && (
+
+                    <div className="profile-detail-card">
+
+                        <span className="detail-label">
+                            College Status
+                        </span>
+
+                        <span className="verified">
+                            ✓ College Verified
+                        </span>
+
+                    </div>
+
+                )}
+            </>
+        ) : (
+            <div className="profile-detail-card">
+
+                <span className="detail-label">
+                    Category
+                </span>
+
+                <span className="detail-value">
+                    {user.department}
+                </span>
+
+            </div>
+        )}
+
+        <button
+            className="logout-btn profile-mobile-logout"
+            onClick={handleLogout}
+        >
+            Logout
+        </button>
+
+    </div>
+) : ( 
                 <>
                     <div className="profile-left">
                         <div className="profile-avatar">
