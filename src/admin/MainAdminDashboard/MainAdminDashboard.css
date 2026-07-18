@@ -6,7 +6,7 @@
     width:90%;
     min-height:100vh;
     background:#f5f7fb;
-    margin: 0 30px;
+    margin: 0 30px 0 30px;
 }
 
 /* ========================================
@@ -16,7 +16,7 @@
 .desktop-dashboard{
     display:block;
     max-width:1400px;
-    margin:auto;
+    margin:0 30px 0 30px;
     padding:28px;
     gap: 32px;
 }

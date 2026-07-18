@@ -102,12 +102,12 @@ return (
     <div className="complaint-form-page">
 
         <div className="back-btn-wrapper">
-            <button
+            {/* <button
                 className="back-btn"
                 onClick={() => navigate(-1)}
             >
                 ← Back
-            </button>
+            </button> */}
         </div>
 
         <div className="complaint-form-card">
