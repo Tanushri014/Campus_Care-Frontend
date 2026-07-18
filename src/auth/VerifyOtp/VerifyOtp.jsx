@@ -1,22 +1,33 @@
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { verifyOtp ,resendOtp} from "../../api/authApi";
+import { verifyOtp, resendOtp } from "../../api/authApi";
 import "./VerifyOtp.css";
 
 function VerifyOtp() {
 
     const navigate = useNavigate();
-
     const location = useLocation();
 
     const studentEmail = location.state?.studentEmail || "";
-const [timeLeft, setTimeLeft] = useState(120);
+
     const [otp, setOtp] = useState(["", "", "", "", "", ""]);
-
+    const [timeLeft, setTimeLeft] = useState(120);
     const [loading, setLoading] = useState(false);
-
     const [error, setError] = useState("");
+
+    useEffect(() => {
+
+        if (timeLeft === 0) return;
+
+        const timer = setTimeout(() => {
+
+            setTimeLeft((prev) => prev - 1);
+
+        }, 1000);
+
+        return () => clearTimeout(timer);
+
+    }, [timeLeft]);
 
     const handleOtpChange = (e, index) => {
 
@@ -24,8 +35,9 @@ const [timeLeft, setTimeLeft] = useState(120);
 
         if (!/^[0-9]?$/.test(value)) return;
 
-        const updatedOtp = [...otp];
+        setError("");
 
+        const updatedOtp = [...otp];
         updatedOtp[index] = value;
 
         setOtp(updatedOtp);
@@ -37,19 +49,7 @@ const [timeLeft, setTimeLeft] = useState(120);
         }
 
     };
-useEffect(() => {
 
-    if (timeLeft <= 0) return;
-
-    const timer = setInterval(() => {
-
-        setTimeLeft(prev => prev - 1);
-
-    }, 1000);
-
-    return () => clearInterval(timer);
-
-}, [timeLeft]);
     const handleVerifyOtp = async () => {
 
         const enteredOtp = otp.join("");
@@ -57,13 +57,11 @@ useEffect(() => {
         if (enteredOtp.length !== 6) {
 
             setError("Please enter the complete OTP.");
-
             return;
 
         }
 
         setLoading(true);
-
         setError("");
 
         try {
@@ -71,7 +69,6 @@ useEffect(() => {
             await verifyOtp({
 
                 studentEmail,
-
                 otp: enteredOtp
 
             });
@@ -79,28 +76,21 @@ useEffect(() => {
             navigate("/verify-college", {
 
                 state: {
-
                     studentEmail
-
                 }
 
             });
 
-        }
-
-        catch (err) {
+        } catch (err) {
 
             setError(
 
                 err.response?.data?.message ||
-
-                "OTP verification failed."
+                "Invalid OTP."
 
             );
 
-        }
-
-        finally {
+        } finally {
 
             setLoading(false);
 
@@ -110,38 +100,44 @@ useEffect(() => {
 
     const handleResendOtp = async () => {
 
-    if (timeLeft > 0) return;
+        if (timeLeft > 0) return;
 
-    setLoading(true);
-    setError("");
+        setLoading(true);
+        setError("");
 
-    try {
+        try {
 
-        await resendOtp({
-            studentEmail
-        });
+            await resendOtp({
 
-        alert("OTP has been sent successfully.");
+                studentEmail
 
-        setTimeLeft(120);
+            });
 
-    } catch (err) {
+            alert("A new OTP has been sent to your email.");
 
-        setError(
-            err.response?.data?.message ||
-            "Unable to resend OTP."
-        );
+            setOtp(["", "", "", "", "", ""]);
+            setTimeLeft(120);
 
-    } finally {
+        } catch (err) {
 
-        setLoading(false);
+            setError(
 
-    }
+                err.response?.data?.message ||
+                "Unable to resend OTP."
 
-};
-const minutes = String(Math.floor(timeLeft / 60)).padStart(2, "0");
+            );
 
-const seconds = String(timeLeft % 60).padStart(2, "0");
+        } finally {
+
+            setLoading(false);
+
+        }
+
+    };
+
+    const minutes = String(Math.floor(timeLeft / 60)).padStart(2, "0");
+    const seconds = String(timeLeft % 60).padStart(2, "0");
+
     return (
 
         <div className="otp-page">
@@ -151,64 +147,41 @@ const seconds = String(timeLeft % 60).padStart(2, "0");
                 <div className="otp-header">
 
                     <h1>
-
                         CampusCare
-
                     </h1>
 
                     <h2>
-
                         Verify Your Email
-
                     </h2>
 
                     <p>
-
                         Enter the 6-digit verification code sent to
-
                         <br />
-
                         <strong>{studentEmail}</strong>
-
                     </p>
 
                 </div>
 
                 <div className="otp-inputs">
 
-                    {
+                    {otp.map((digit, index) => (
 
-                        otp.map((digit, index) => (
+                        <input
 
-                            <input
+                            key={index}
+                            id={`otp-${index}`}
+                            type="text"
+                            maxLength="1"
+                            value={digit}
+                            onChange={(e) => handleOtpChange(e, index)}
 
-                                key={index}
+                        />
 
-                                id={`otp-${index}`}
-
-                                type="text"
-
-                                maxLength="1"
-
-                                value={digit}
-
-                                onChange={(e) =>
-
-                                    handleOtpChange(e, index)
-
-                                }
-
-                            />
-
-                        ))
-
-                    }
+                    ))}
 
                 </div>
 
-                {
-
-                    error &&
+                {error && (
 
                     <p className="error-message">
 
@@ -216,27 +189,17 @@ const seconds = String(timeLeft % 60).padStart(2, "0");
 
                     </p>
 
-                }
+                )}
 
                 <button
 
                     className="verify-btn"
-
                     onClick={handleVerifyOtp}
-
-                    disabled={loading||timeLeft>0}
+                    disabled={loading}
 
                 >
 
-                    {
-
-                        loading
-
-                            ? "Verifying..."
-
-                            : "Verify OTP"
-
-                    }
+                    {loading ? "Verifying..." : "Verify OTP"}
 
                 </button>
 
@@ -246,19 +209,21 @@ const seconds = String(timeLeft % 60).padStart(2, "0");
 
                 </p>
 
-               <button
-    className="resend-btn"
-    onClick={handleResendOtp}
-    disabled={loading}
->
+                <button
 
-    {loading
-    ? "Sending..."
-    : timeLeft > 0
-        ? `Resend in ${minutes}:${seconds}`
-        : "Resend OTP"}
+                    className="resend-btn"
+                    onClick={handleResendOtp}
+                    disabled={loading || timeLeft > 0}
 
-</button>
+                >
+
+                    {loading
+                        ? "Sending..."
+                        : timeLeft > 0
+                            ? `Resend in ${minutes}:${seconds}`
+                            : "Resend OTP"}
+
+                </button>
 
                 <p className="back-login">
 
