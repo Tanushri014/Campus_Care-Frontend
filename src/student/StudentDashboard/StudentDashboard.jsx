@@ -20,7 +20,9 @@ import {
 import "./StudentDashboard.css";
 
 function StudentDashboard() {
-const handleLogout = async () => {
+
+    const navigate = useNavigate();
+    const handleLogout = async () => {
     try {
         await logout();
     } catch (error) {
@@ -29,7 +31,6 @@ const handleLogout = async () => {
         navigate("/login", { replace: true });
     }
 };
-    const navigate = useNavigate();
 
     const [complaints, setComplaints] = useState([]);
     const [student, setStudent] = useState(null);
@@ -92,7 +93,7 @@ const handleLogout = async () => {
 
             <div className="desktop-dashboard">
 
-                <StudentProfile stats={stats} showStats={true} layout="dashboard" />
+                <StudentProfile stats={stats} showStats={true} layout="dashboard" handleLogout={handleLogout} />
 
                 <ComplaintPreview />
 

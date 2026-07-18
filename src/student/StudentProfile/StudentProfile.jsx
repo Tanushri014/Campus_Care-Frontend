@@ -6,7 +6,7 @@ import { getStudentProfile } from "../../api/studentApi";
 function StudentProfile({
     stats,
     showStats = true,
-    layout = "dashboard"
+    layout = "dashboard",handleLogout,
 }) {
 
     const [student, setStudent] = useState(null);
@@ -71,6 +71,7 @@ function StudentProfile({
             role="student"
             showStats={showStats}
             layout={layout}
+            handleLogout={handleLogout}
 
         />
 
