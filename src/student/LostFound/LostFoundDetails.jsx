@@ -87,12 +87,12 @@ const handleDelete = async () => {
 
             <div className="lostfound-details-card">
 
-                <button
+                {/* <button
                     className="back-btn"
                     onClick={() => navigate(-1)}
                 >
                     ← Back
-                </button>
+                </button> */}
 
                 {item.imageUrl && (
 
