@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { useEffect, useState } from "react";
 import { verifyOtp ,resendOtp} from "../../api/authApi";
 import "./VerifyOtp.css";
 
@@ -11,7 +11,7 @@ function VerifyOtp() {
     const location = useLocation();
 
     const studentEmail = location.state?.studentEmail || "";
-
+const [timeLeft, setTimeLeft] = useState(120);
     const [otp, setOtp] = useState(["", "", "", "", "", ""]);
 
     const [loading, setLoading] = useState(false);
@@ -37,7 +37,19 @@ function VerifyOtp() {
         }
 
     };
+useEffect(() => {
 
+    if (timeLeft <= 0) return;
+
+    const timer = setInterval(() => {
+
+        setTimeLeft(prev => prev - 1);
+
+    }, 1000);
+
+    return () => clearInterval(timer);
+
+}, [timeLeft]);
     const handleVerifyOtp = async () => {
 
         const enteredOtp = otp.join("");
@@ -98,6 +110,8 @@ function VerifyOtp() {
 
     const handleResendOtp = async () => {
 
+    if (timeLeft > 0) return;
+
     setLoading(true);
     setError("");
 
@@ -108,6 +122,8 @@ function VerifyOtp() {
         });
 
         alert("OTP has been sent successfully.");
+
+        setTimeLeft(120);
 
     } catch (err) {
 
@@ -123,7 +139,9 @@ function VerifyOtp() {
     }
 
 };
+const minutes = String(Math.floor(timeLeft / 60)).padStart(2, "0");
 
+const seconds = String(timeLeft % 60).padStart(2, "0");
     return (
 
         <div className="otp-page">
@@ -206,7 +224,7 @@ function VerifyOtp() {
 
                     onClick={handleVerifyOtp}
 
-                    disabled={loading}
+                    disabled={loading||timeLeft>0}
 
                 >
 
@@ -234,7 +252,11 @@ function VerifyOtp() {
     disabled={loading}
 >
 
-    {loading ? "Sending..." : "Resend OTP"}
+    {loading
+    ? "Sending..."
+    : timeLeft > 0
+        ? `Resend in ${minutes}:${seconds}`
+        : "Resend OTP"}
 
 </button>
 

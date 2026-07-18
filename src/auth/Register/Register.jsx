@@ -67,9 +67,9 @@ function Register() {
 
             setError(
 
-                err.response?.data?.message ||
+                
 
-                "Registration failed. Please try again.Or This Email Is Already Linked Try Another ONe"
+                "Registration failed.This Email already has a account please log in to continue"
 
             );
 
