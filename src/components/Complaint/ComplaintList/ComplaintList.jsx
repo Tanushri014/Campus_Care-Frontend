@@ -131,7 +131,7 @@ function ComplaintList({ role }) {
 
         <div className="complaint-list-page">
 
-            {/* Back Button */}
+            Back Button
 
             <div className="back-btn-wrapper">
 

@@ -95,14 +95,14 @@ function LostFoundList() {
     return (
         <div className="lostfound-list-page">
 
-            <div className="back-btn-wrapper">
+            {/* <div className="back-btn-wrapper">
                 <button
                     className="back-btn"
                     onClick={() => navigate("/student/dashboard")}
                 >
                     ← Back to Dashboard
                 </button>
-            </div>
+            </div> */}
 
             <div className="lostfound-list-header">
 
