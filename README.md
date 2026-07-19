@@ -61,15 +61,25 @@ This repository contains the React + Vite frontend application that communicates
 
 src/
 ├── admin/         # Admin-specific pages and components
+
 ├── api/           # Axios API services
+
 ├── auth/          # Authentication pages and utilities
+
 ├── components/    # Reusable UI components
+
 ├── context/       # React Context providers
+
 ├── layouts/       # Shared application layouts
+
 ├── pages/         # General application pages
+
 ├── routes/        # Route configuration & protection
+
 ├── student/       # Student-specific modules
+
 ├── App.jsx
+
 └── main.jsx
 
 
